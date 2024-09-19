@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/img.png"
@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="0.74" />
 
     <com.google.android.gms.common.SignInButton
-        android:id="@+id/ssoLogin"
+        android:id="@+id/signIn"
         android:layout_width="196dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"

@@ -15,6 +15,14 @@
         android:src="@drawable/logo"
         android:id = "@+id/profileimage"/>
 
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="83dp"
+        android:text="Sign out" />
+
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
