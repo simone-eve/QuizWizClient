@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun navigateToSecondActivity() {
         finish()
-        val intent: Intent = Intent(this@LoginActivity, SecondActivity::class.java)
+        val intent: Intent = Intent(this@LoginActivity, LoginActivity::class.java)
         startActivity(intent)
     }
 }
