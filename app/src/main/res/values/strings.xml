@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">QuizWiz</string>
     <string name="client_id">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</string>
+    <string name="google_client_id">359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com</string>
     <string name="email">Email</string>
     <string name="Name">Name</string>
     <string name="password">Password</string>
