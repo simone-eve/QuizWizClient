@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
 
     fun navigateToSecondActivity() {
         finish()
-        val intent: Intent = Intent(this@MainActivity, LoginActivity::class.java)
+        val intent: Intent = Intent(this@MainActivity, Dashboard::class.java)
         startActivity(intent)
     }
 }
