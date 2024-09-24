@@ -54,6 +54,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.5.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
+    implementation ("com.android.volley:volley:1.2.1")
+    implementation("com.google.ai.client.generativeai:generativeai:0.1.2")
 
 
     testImplementation(libs.junit)
