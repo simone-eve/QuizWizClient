@@ -28,9 +28,7 @@ import java.util.HashMap
 class ChatGPTResult : AppCompatActivity() {
 
     private lateinit var textView: TextView
-    private val stringURLEndPoint = "https://api-inference.huggingface.co/models/gpt2"
     private val stringAPIKey = "AIzaSyAC0kKEZg_UjPUcKIA93qnEoPSdudgvalw"
-    private var stringOutput = ""
     private lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {

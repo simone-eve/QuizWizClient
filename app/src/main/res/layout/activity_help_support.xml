@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/BabyBlue"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Pink"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="186dp"
+            android:layout_height="205dp"
+            android:layout_marginLeft="115sp"
+            android:layout_marginTop="25sp"
+            app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="386dp"
+            android:layout_height="460dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="220dp"
+            android:text=""
+            app:backgroundTint="@color/lightBabyBlue"
+            app:cornerRadius="0dp" />
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="321dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="220dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Frequently Asked Questions(FAQ)"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewFAQ"
+            android:layout_width="376dp"
+            android:layout_height="123dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="265dp"
+            android:background="@color/BabyBlue"
+            android:text=" Ask A Question"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="223dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="380dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Contact Support:"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="372dp"
+            android:layout_height="83dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="425dp"
+            android:background="@color/BabyBlue"
+            android:textStyle="bold"
+            android:text="Email Address: quizwiz@gmail.com        Contact Number: 081 264 9953"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewFeedback"
+            android:layout_width="373dp"
+            android:layout_height="87dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="520dp"
+            android:background="@color/BabyBlue"
+            android:text=" Feedback"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnProfileSettings"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="620dp"
+            android:backgroundTint="@color/Pink"
+            android:text="SUBMIT"
+            android:textSize="20dp"
+            app:cornerRadius="0dp" />
+
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BabyBlue"
+            android:text="LOGOUT"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="679dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

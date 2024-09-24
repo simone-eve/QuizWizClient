@@ -15,6 +15,30 @@
         android:theme="@style/Theme.QuizWiz3"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Results"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".Dashboard" />
+
+        <activity
+            android:name=".MultipleChoice"
+            android:exported="true" />
+        <activity
+            android:name=".GameSettings"
+            android:exported="true" />
+        <activity
+            android:name=".PlayerSelection"
+            android:exported="true" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

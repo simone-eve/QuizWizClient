@@ -56,6 +56,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
     implementation ("com.android.volley:volley:1.2.1")
     implementation("com.google.ai.client.generativeai:generativeai:0.1.2")
+    implementation("androidx.games:games-activity:3.0.5")
 
 
     testImplementation(libs.junit)
