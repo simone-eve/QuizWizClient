@@ -27,7 +27,7 @@ import java.util.HashMap
 
 class ChatGPTResult : AppCompatActivity() {
 
-    private lateinit var textView: TextView
+    private lateinit var textViewAnswer: TextView
     private val stringAPIKey = "AIzaSyAC0kKEZg_UjPUcKIA93qnEoPSdudgvalw"
     private lateinit var button: Button
 
@@ -36,7 +36,7 @@ class ChatGPTResult : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_chat_gptresult)
 
-        textView = findViewById(R.id.textView)
+        textViewAnswer = findViewById(R.id.tvQResult)
         button = findViewById<Button>(R.id.chatgptButton)
         button.setOnClickListener {
             lifecycleScope.launch {
@@ -48,8 +48,7 @@ class ChatGPTResult : AppCompatActivity() {
                     val prompt = "How many planets are in our solar system"
                     val response = generativeModel.generateContent(prompt)
                     print(response.text)
-                    textView.text = response.text
-                    button.tooltipText = response.text
+                    textViewAnswer.text = response.text
                 } catch (e: Exception) {
                     e.printStackTrace()
                     Toast.makeText(this@ChatGPTResult, "Error generating content", Toast.LENGTH_SHORT).show()

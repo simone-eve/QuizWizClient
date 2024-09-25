@@ -39,7 +39,7 @@ class Settings : AppCompatActivity() {
         // Set click listeners for buttons
         profileSettingsButton.setOnClickListener {
             // Navigate to Profile Settings
-            val intent = Intent(this, MultipleChoice::class.java)
+            val intent = Intent(this, MultiChoice::class.java)
             startActivity(intent)
         }
 
@@ -63,7 +63,7 @@ class Settings : AppCompatActivity() {
 
         logoutButton.setOnClickListener {
             // Handle logout action
-            val intent = Intent(this, MultipleChoice::class.java)
+            val intent = Intent(this, MultiChoice::class.java)
             startActivity(intent)
         }
     }
