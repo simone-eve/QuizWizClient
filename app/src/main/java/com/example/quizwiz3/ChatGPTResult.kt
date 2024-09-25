@@ -49,6 +49,7 @@ class ChatGPTResult : AppCompatActivity() {
                     val response = generativeModel.generateContent(prompt)
                     print(response.text)
                     textView.text = response.text
+                    button.tooltipText = response.text
                 } catch (e: Exception) {
                     e.printStackTrace()
                     Toast.makeText(this@ChatGPTResult, "Error generating content", Toast.LENGTH_SHORT).show()
