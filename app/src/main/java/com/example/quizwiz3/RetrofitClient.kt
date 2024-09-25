@@ -9,11 +9,7 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 object RetrofitClient {
-
-   // private const val BASE_URL = "http://10.0.2.2:5200"
     private const val BASE_URL = "http://10.0.2.2:5200"
-
-
 
     // Create a custom OkHttpClient that trusts all certificates
     private val okHttpClient: OkHttpClient by lazy {
@@ -28,6 +24,7 @@ object RetrofitClient {
 
         OkHttpClient.Builder()
             .sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
+            .hostnameVerifier { _, _ -> true } // This bypasses hostname verification
             .build()
     }
 

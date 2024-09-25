@@ -16,21 +16,16 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Results"
-            android:exported="false" />
+            android:exported="true" />
         <activity
-            android:name=".SplashScreen"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".ChatGPTResult"
+            android:exported="true"/>
 
-        </activity>
-        <activity android:name=".Dashboard" />
+        <activity android:name=".Dashboard"
+            android:exported="true" />
 
         <activity
-            android:name=".MultipleChoice"
+            android:name=".MultiChoice"
             android:exported="true" />
         <activity
             android:name=".GameSettings"
@@ -40,12 +35,12 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
-            android:name=".ChatGPTResult"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
