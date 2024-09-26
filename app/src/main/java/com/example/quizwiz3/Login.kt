@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 
-class LoginActivity : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
 
     var gso: GoogleSignInOptions? = null
@@ -122,7 +122,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun navigateToSecondActivity() {
         finish()
-        val intent: Intent = Intent(this@LoginActivity, Dashboard::class.java)
+        val intent: Intent = Intent(this@Login, Dashboard::class.java)
         startActivity(intent)
     }
 }

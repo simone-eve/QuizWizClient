@@ -45,7 +45,7 @@ class HelpSupport : AppCompatActivity() {
         private fun logoutUser() {
             // Perform the logout logic here
             // For example, if using Firebase Auth, you could call FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()

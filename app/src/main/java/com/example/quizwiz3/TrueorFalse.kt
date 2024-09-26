@@ -94,6 +94,7 @@ class TrueorFalse : AppCompatActivity() {
                 if (response.isSuccessful) {
                     questions = response.body() ?: emptyList()
                     if (questions.isNotEmpty()) {
+                        QuestionCache.cachedQuestionsTF = questions
                         displayQuestion()
                         Toast.makeText(this@TrueorFalse, "Questions fetched successfully", Toast.LENGTH_SHORT).show()
                     } else {

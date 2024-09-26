@@ -16,15 +16,17 @@
         android:theme="@style/Theme.QuizWiz3"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Results"
+            android:name=".QuestionsAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".ChatGPTResult"
-            android:exported="true"/>
-
-        <activity android:name=".Dashboard"
             android:exported="true" />
-
+        <activity
+            android:name=".Dashboard"
+            android:exported="true" />
         <activity
             android:name=".MultiChoice"
             android:exported="true" />
@@ -42,7 +44,7 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Results"
             android:exported="true" />
         <activity
             android:name=".SplashScreen"
