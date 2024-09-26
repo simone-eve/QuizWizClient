@@ -2,14 +2,15 @@ package com.example.quizwiz3
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import retrofit2.Call
 import retrofit2.Response
+import androidx.appcompat.app.AlertDialog
 import retrofit2.Callback
 
 class MultiChoice : AppCompatActivity() {
@@ -20,8 +21,8 @@ class MultiChoice : AppCompatActivity() {
     private lateinit var answerButton3: Button
     private lateinit var nextbtn: Button
     private lateinit var backbtn: Button
-    private lateinit var resultTextView:TextView
-    private  lateinit var dashboardbtn:Button
+    private lateinit var resultTextView: TextView
+    private lateinit var dashboardbtn: Button
 
     private var questions: List<MultipleChoiceQuestion> = emptyList()
     private var currentQuestionIndex = 0
@@ -44,10 +45,13 @@ class MultiChoice : AppCompatActivity() {
         val category = intent.getStringExtra("category") ?: "Default"
         fetchQuestions(category)
 
+        // Show the alert dialog when the activity starts
+        showInstructionsDialog()
+
         // Set click listeners for answer buttons
-        answerButton1.setOnClickListener { selectAnswer(answerButton1.text.toString()) }
-        answerButton2.setOnClickListener { selectAnswer(answerButton2.text.toString()) }
-        answerButton3.setOnClickListener { selectAnswer(answerButton3.text.toString()) }
+        answerButton1.setOnClickListener { handleAnswerSelection(answerButton1, answerButton1.text.toString()) }
+        answerButton2.setOnClickListener { handleAnswerSelection(answerButton2, answerButton2.text.toString()) }
+        answerButton3.setOnClickListener { handleAnswerSelection(answerButton3, answerButton3.text.toString()) }
 
         val dashboardbtn: Button = findViewById(R.id.dashboardbtn)
 
@@ -69,38 +73,59 @@ class MultiChoice : AppCompatActivity() {
             currentQuestionIndex-- // Move to the previous question
             displayCurrentQuestion() // Update the UI to show the previous question
             selectedAnswer = null // Reset selected answer for the previous question
+            resetButtonColors() // Reset button colors when going back
         } else {
             Toast.makeText(this, "This is the first question", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun selectAnswer(answer: String) {
+    private fun showInstructionsDialog() {
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("Instructions")
+            .setMessage("Please click a button to select your answer and click Next to proceed to the next question.")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss() // Dismiss the dialog when the user clicks OK
+            }
+            .create()
+
+        alertDialog.show() // Display the dialog
+    }
+
+    private fun handleAnswerSelection(button: Button, answer: String) {
         selectedAnswer = answer
+        val currentQuestion = questions[currentQuestionIndex]
+
+        if (answer == currentQuestion.answer) {
+            button.setBackgroundColor(Color.GREEN) // Correct answer turns green
+            score++
+            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
+        } else {
+            button.setBackgroundColor(Color.RED) // Incorrect answer turns red
+            Toast.makeText(this, "Incorrect! The correct answer is: ${currentQuestion.answer}", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun showNextQuestion() {
         if (selectedAnswer != null) {
-            // Check if the answer is correct
-            val currentQuestion = questions[currentQuestionIndex]
-            if (selectedAnswer == currentQuestion.answer) {
-                Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
-                score++ // Increment score for correct answer
+            // Move to the next question
+            currentQuestionIndex++
+            if (currentQuestionIndex < questions.size) {
+                displayCurrentQuestion()
+                selectedAnswer = null // Reset selected answer for the next question
+                resetButtonColors() // Reset the button colors for the next question
             } else {
-                Toast.makeText(this, "Incorrect! The correct answer is: ${currentQuestion.answer}", Toast.LENGTH_LONG).show()
+                displayFinalScore() // Show score after the last question
             }
         } else {
             Toast.makeText(this, "Please select an answer first", Toast.LENGTH_SHORT).show()
-            return
         }
+    }
 
-        // Move to the next question
-        currentQuestionIndex++
-        if (currentQuestionIndex < questions.size) {
-            displayCurrentQuestion()
-            selectedAnswer = null // Reset selected answer for the next question
-        } else {
-            displayFinalScore() // Show score after the last question
-        }
+    private fun resetButtonColors() {
+        // Reset all buttons to the default color
+        answerButton1.setBackgroundColor(Color.parseColor("#FF1493"))
+        answerButton2.setBackgroundColor(Color.parseColor("#FF1493"))
+        answerButton3.setBackgroundColor(Color.parseColor("#FF1493"))
     }
 
     private fun fetchQuestions(category: String) {
@@ -128,7 +153,7 @@ class MultiChoice : AppCompatActivity() {
             val currentQuestion = questions[currentQuestionIndex]
             QuestionTXT.text = currentQuestion.questionText
 
-            val optionsList = currentQuestion.options.values.toList()  // Convert to List<String>
+            val optionsList = currentQuestion.options.values.toList()
 
             answerButton1.text = optionsList.getOrNull(0) ?: ""
             answerButton2.text = optionsList.getOrNull(1) ?: ""
@@ -139,14 +164,7 @@ class MultiChoice : AppCompatActivity() {
     }
 
     private fun displayFinalScore() {
-        // Display score in resultTextView
         resultTextView.text = "Quiz Finished! Your score: $score/${questions.size}"
-
-        // Optionally, you can also show a Toast
-        // Toast.makeText(this, "Quiz Finished! Your score: $score/${questions.size}", Toast.LENGTH_LONG).show()
-
-        // Disable the next button if no more questions
-        nextbtn.isEnabled = false
+        nextbtn.isEnabled = false // Disable the next button if no more questions
     }
-
 }
