@@ -25,6 +25,7 @@ class MultiChoice : AppCompatActivity() {
     private lateinit var dashboardbtn: Button
 
     private var questions: List<MultipleChoiceQuestion> = emptyList()
+    private var stringQuestions: List<String> = emptyList()
     private var currentQuestionIndex = 0
     private var selectedAnswer: String? = null
     private var score = 0 // Initialize the score
@@ -62,7 +63,7 @@ class MultiChoice : AppCompatActivity() {
         }
 
         // Set click listener for next button
-        nextbtn.setOnClickListener { showNextQuestion() }
+        nextbtn.setOnClickListener { showNextQuestion(category) }
 
         // Set click listener for back button
         backbtn.setOnClickListener { showPreviousQuestion() }
@@ -105,7 +106,7 @@ class MultiChoice : AppCompatActivity() {
         }
     }
 
-    private fun showNextQuestion() {
+    private fun showNextQuestion(category: String) {
         if (selectedAnswer != null) {
             // Move to the next question
             currentQuestionIndex++
@@ -114,7 +115,7 @@ class MultiChoice : AppCompatActivity() {
                 selectedAnswer = null // Reset selected answer for the next question
                 resetButtonColors() // Reset the button colors for the next question
             } else {
-                displayFinalScore() // Show score after the last question
+                displayFinalScore(category) // Show score after the last question
             }
         } else {
             Toast.makeText(this, "Please select an answer first", Toast.LENGTH_SHORT).show()
@@ -134,6 +135,8 @@ class MultiChoice : AppCompatActivity() {
             override fun onResponse(call: Call<List<MultipleChoiceQuestion>>, response: Response<List<MultipleChoiceQuestion>>) {
                 if (response.isSuccessful) {
                     questions = response.body() ?: emptyList()
+                    stringQuestions = questions.map { it.questionText }
+                    QuestionCache.cachedQuestionsMC = questions
                     displayCurrentQuestion()
                 } else {
                     // Handle the error
@@ -163,8 +166,12 @@ class MultiChoice : AppCompatActivity() {
         }
     }
 
-    private fun displayFinalScore() {
+    private fun displayFinalScore(category: String) {
         resultTextView.text = "Quiz Finished! Your score: $score/${questions.size}"
+      //  val intent = Intent(this, Results::class.java)
+      //  intent.putExtra("category", category)
+      //  intent.putExtra("type", "MultipleChoice")
+      //  startActivity(intent)
         nextbtn.isEnabled = false // Disable the next button if no more questions
     }
 }

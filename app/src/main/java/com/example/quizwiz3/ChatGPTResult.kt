@@ -1,5 +1,6 @@
 package com.example.quizwiz3
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -31,15 +32,21 @@ class ChatGPTResult : AppCompatActivity() {
     private lateinit var textViewQuestion: TextView
     private val stringAPIKey = "AIzaSyAC0kKEZg_UjPUcKIA93qnEoPSdudgvalw"
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_chat_gptresult)
         val question = intent.getStringExtra("selectedQuestion") ?: "Default"
+        val optionsList = intent.getStringArrayListExtra("optionsList")
 
         textViewAnswer = findViewById(R.id.tvQResult)
         textViewQuestion = findViewById(R.id.tvQuestion)
+        val options = optionsList?.joinToString(", ")
+        val fullQuestion = question + options
 
+        if(optionsList == null)
+        {
             lifecycleScope.launch {
                 try {
                     val generativeModel = GenerativeModel(
@@ -56,6 +63,27 @@ class ChatGPTResult : AppCompatActivity() {
                     Toast.makeText(this@ChatGPTResult, "Error generating content", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+        else{
+            lifecycleScope.launch {
+                try {
+                    val generativeModel = GenerativeModel(
+                        modelName = "gemini-1.5-flash",
+                        apiKey = stringAPIKey
+                    )
+                    val prompt = fullQuestion
+                    val response = generativeModel.generateContent(prompt)
+                    print(response.text)
+                    textViewAnswer.text = "\n " + response.text
+                    textViewQuestion.text = "\n " + fullQuestion
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    Toast.makeText(this@ChatGPTResult, "Error generating content", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+
 
 
 

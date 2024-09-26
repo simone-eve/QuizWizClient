@@ -29,7 +29,7 @@ import androidx.appcompat.widget.Toolbar
         private fun logoutUser() {
             // Perform the logout logic here
             // This can be signing out of Firebase Auth or clearing shared preferences, etc.
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()

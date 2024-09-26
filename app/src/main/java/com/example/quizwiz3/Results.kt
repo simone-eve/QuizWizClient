@@ -18,91 +18,79 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Results : AppCompatActivity() {
-    private var mcQuestions: List<MultipleChoiceQuestion> = emptyList()
-    private var tfQuestions: List<TrueOrFalseQuestion> = emptyList()
+    private var cachedQuestionsMC: List<MultipleChoiceQuestion> = emptyList()
+    private var cachedQuestionsTF: List<TrueOrFalseQuestion> = emptyList()
 
     private lateinit var rvCategories: RecyclerView
     private lateinit var QuestionsAdapter: QuestionsAdapter
+    private lateinit var QuestionsAdapterTrueOrFalse: QuestionsAdapterTrueOrFalse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_results)
 
+        cachedQuestionsMC = QuestionCache.cachedQuestionsMC
+        cachedQuestionsTF = QuestionCache.cachedQuestionsTF
+
         rvCategories = findViewById<RecyclerView>(R.id.rvCategories)
-        val category = "MultipleChoice"
-            //intent.getStringExtra("category") ?: "Default"
-        val type = "MultipleChoice"
-//            intent.getStringExtra("type") ?: "Default"//
-        Toast.makeText(this@Results, category, Toast.LENGTH_SHORT).show()
-        Toast.makeText(this@Results, type, Toast.LENGTH_SHORT).show()
+        val category = intent.getStringExtra("category") ?: "Default"
+        val type = intent.getStringExtra("type") ?: "Default"
 
         if(type == "MultipleChoice")
         {
             fetchQuestionsMultipleChoice()
+            Toast.makeText(this@Results, "$category", Toast.LENGTH_SHORT).show()
 
         } else
         {
-            fetchQuestionsTrueOrFalse(category)
+            fetchQuestionsTrueOrFalse()
         }
     }
 
-    private fun displayQuestions(questions: List<String>) {
-
+    private fun displayQuestionsMC(questions: List<MultipleChoiceQuestion>) {
         QuestionsAdapter = QuestionsAdapter(questions) { selectedQuestion ->
-            // Intent to navigate to ChatGPTResult activity
+
+            // Convert the options from a map to a list
+            val optionsList = selectedQuestion.options.values.toList()
+
+            // Pass both question and options to the next activity
             val intent = Intent(this, ChatGPTResult::class.java)
-            intent.putExtra("selectedQuestion", "how many eggs in a dozen?")
+            intent.putExtra("selectedQuestion", selectedQuestion.questionText)
+            intent.putStringArrayListExtra("optionsList", ArrayList(optionsList)) // Pass the options list
             startActivity(intent)
         }
+
         rvCategories.layoutManager = LinearLayoutManager(this)
         rvCategories.adapter = QuestionsAdapter
-        Toast.makeText(this@Results, "working", Toast.LENGTH_SHORT).show()
     }
+
+    private fun displayQuestionsTF(questions: List<TrueOrFalseQuestion>) {
+        QuestionsAdapterTrueOrFalse = QuestionsAdapterTrueOrFalse(questions) { selectedQuestion ->
+
+            // Pass both question and options to the next activity
+            val intent = Intent(this, ChatGPTResult::class.java)
+            intent.putExtra("selectedQuestion", selectedQuestion.questionText)
+            startActivity(intent)
+        }
+
+        rvCategories.layoutManager = LinearLayoutManager(this)
+        rvCategories.adapter = QuestionsAdapterTrueOrFalse
+    }
+
 
 
     private fun fetchQuestionsMultipleChoice() {
-//        val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
-//        apiService.getMultipleChoiceQuestions(category).enqueue(object : Callback<List<MultipleChoiceQuestion>> {
-//            override fun onResponse(call: Call<List<MultipleChoiceQuestion>>, response: Response<List<MultipleChoiceQuestion>>) {
-//                if (response.isSuccessful) {
-//                    mcQuestions = response.body() ?: emptyList()
-//                    val sampleQuestions = listOf("Question 1", "Question 2", "Question 3", "Question 4", "Question 5")
-//                    displayQuestions(sampleQuestions)
-//                } else {
-//                    Toast.makeText(this@Results, "Failed", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<List<MultipleChoiceQuestion>>, t: Throwable) {
-//                Toast.makeText(this@Results, "Failed", Toast.LENGTH_SHORT).show()
-//            }
- //       })
-        Toast.makeText(this@Results, "questions", Toast.LENGTH_SHORT).show()
-        val sampleQuestions = listOf("January", "February", "March")
-        displayQuestions(sampleQuestions)
+       if (cachedQuestionsMC != null) {
+            displayQuestionsMC(cachedQuestionsMC)
+            return
+        }
     }
 
-    private fun fetchQuestionsTrueOrFalse(category: String) {
-        val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
-        val call = apiService.getQuestions(category)
-
-        call.enqueue(object : Callback<List<TrueOrFalseQuestion>> {
-            override fun onResponse(
-                call: Call<List<TrueOrFalseQuestion>>,
-                response: Response<List<TrueOrFalseQuestion>>
-            ) {
-                if (response.isSuccessful) {
-                    tfQuestions = response.body() ?: emptyList()
-
-                } else {
-                    Toast.makeText(this@Results, "Failed", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<List<TrueOrFalseQuestion>>, t: Throwable) {
-                Toast.makeText(this@Results, "Failed", Toast.LENGTH_SHORT).show()
-            }
-        })
+    private fun fetchQuestionsTrueOrFalse() {
+        if (cachedQuestionsTF != null) {
+            displayQuestionsTF(cachedQuestionsTF)
+            return
+        }
     }
 }
