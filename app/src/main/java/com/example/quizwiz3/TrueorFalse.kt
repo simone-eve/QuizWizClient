@@ -61,6 +61,11 @@ class TrueorFalse : AppCompatActivity() {
                 displayQuestion()
             } else {
                 displayScore() // Call displayScore when there are no more questions
+
+                val intent = Intent(this, Results::class.java)
+                intent.putExtra("category", category)
+                intent.putExtra("type", "TrueOrFalse")
+                startActivity(intent)
             }
         }
 

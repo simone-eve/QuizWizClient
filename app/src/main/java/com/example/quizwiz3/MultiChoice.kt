@@ -58,7 +58,7 @@ class MultiChoice : AppCompatActivity() {
         }
 
         // Set click listener for next button
-        nextbtn.setOnClickListener { showNextQuestion() }
+        nextbtn.setOnClickListener { showNextQuestion(category) }
 
         // Set click listener for back button
         backbtn.setOnClickListener { showPreviousQuestion() }
@@ -78,7 +78,7 @@ class MultiChoice : AppCompatActivity() {
         selectedAnswer = answer
     }
 
-    private fun showNextQuestion() {
+    private fun showNextQuestion(category: String) {
         if (selectedAnswer != null) {
             // Check if the answer is correct
             val currentQuestion = questions[currentQuestionIndex]
@@ -100,6 +100,11 @@ class MultiChoice : AppCompatActivity() {
             selectedAnswer = null // Reset selected answer for the next question
         } else {
             displayFinalScore() // Show score after the last question
+
+            val intent = Intent(this, Results::class.java)
+            intent.putExtra("category", category)
+            intent.putExtra("type", "MultipleChoice")
+            startActivity(intent)
         }
     }
 
