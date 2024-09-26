@@ -39,10 +39,10 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Results"
             android:exported="true" />
         <activity
-            android:name=".Results"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
