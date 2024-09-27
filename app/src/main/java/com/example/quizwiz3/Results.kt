@@ -39,12 +39,13 @@ class Results : AppCompatActivity() {
 
         if(type == "MultipleChoice")
         {
-            fetchQuestionsMultipleChoice()
+            fetchQuestionsMultipleChoice(cachedQuestionsMC)
             Toast.makeText(this@Results, "$category", Toast.LENGTH_SHORT).show()
 
         } else
         {
-            fetchQuestionsTrueOrFalse()
+            fetchQuestionsTrueOrFalse(cachedQuestionsTF)
+            Toast.makeText(this@Results, "fetching tf questions", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -53,7 +54,7 @@ class Results : AppCompatActivity() {
 
             // Convert the options from a map to a list
             val optionsList = selectedQuestion.options.values.toList()
-
+            Toast.makeText(this@Results, "working adapter", Toast.LENGTH_SHORT).show()
             // Pass both question and options to the next activity
             val intent = Intent(this, ChatGPTResult::class.java)
             intent.putExtra("selectedQuestion", selectedQuestion.questionText)
@@ -80,17 +81,11 @@ class Results : AppCompatActivity() {
 
 
 
-    private fun fetchQuestionsMultipleChoice() {
-       if (cachedQuestionsMC != null) {
-            displayQuestionsMC(cachedQuestionsMC)
-            return
-        }
+    private fun fetchQuestionsMultipleChoice(cachedQuestionMC2: List<MultipleChoiceQuestion>) {
+     displayQuestionsMC(cachedQuestionMC2)
     }
 
-    private fun fetchQuestionsTrueOrFalse() {
-        if (cachedQuestionsTF != null) {
-            displayQuestionsTF(cachedQuestionsTF)
-            return
-        }
+    private fun fetchQuestionsTrueOrFalse(cachedQuestionsTF2: List<TrueOrFalseQuestion>) {
+        displayQuestionsTF(cachedQuestionsTF2)
     }
 }

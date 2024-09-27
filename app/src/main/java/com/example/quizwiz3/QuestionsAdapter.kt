@@ -21,7 +21,7 @@ class QuestionsAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_multiple_choice, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_questions_adapter, parent, false)
         return QuestionViewHolder(view)
     }
 
@@ -39,3 +39,4 @@ class QuestionsAdapter(
         return questions.size
     }
 }
+
