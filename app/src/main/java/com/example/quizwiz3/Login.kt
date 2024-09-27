@@ -73,10 +73,10 @@ class Login : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
             if (it.isSuccessful) {
                 Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT).show()
-               // startActivity(Intent(this, Dashboard::class.java))
+                startActivity(Intent(this, Dashboard::class.java))
                 finish()
             } else {
-                Toast.makeText(this, "Log In failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Incorrect Details. Please try again", Toast.LENGTH_LONG).show()
             }
         }
     }

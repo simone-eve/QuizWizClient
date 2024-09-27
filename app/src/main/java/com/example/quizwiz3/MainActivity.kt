@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val user = auth.currentUser
             val displayName = user?.displayName ?: "User"
-            Toast.makeText(this, "Signed In with Google $displayName" , Toast.LENGTH_SHORT).show()
 
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
@@ -84,6 +83,7 @@ class MainActivity : AppCompatActivity() {
     private fun signUpUser() {
         val email = etEmail.text.toString()
         val password = etPasword.text.toString()
+        val name = etName.text.toString()
 
         if (email.isBlank() || password.isBlank()) {
             Toast.makeText(this, "Email and Password can't be blank", Toast.LENGTH_SHORT).show()
@@ -91,13 +91,42 @@ class MainActivity : AppCompatActivity() {
         } else {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Successfully Signed Up", Toast.LENGTH_SHORT).show()
+                    val firebaseUser = auth.currentUser
+                    val firebaseUUID = firebaseUser?.uid.toString()
+                    saveUserDetails(name, email, firebaseUUID)
 
                 } else {
-                    Toast.makeText(this, "Sign Up Failed!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Sign Up Failed! Please try again.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    private fun saveUserDetails(name: String, email: String, firebaseUUID: String) {
+        val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
+
+        // Create a UserDetails object with the provided details
+        val userDetails = UserDetails(name, email, firebaseUUID)
+
+        // Make the API call to post user details
+        apiService.postUserDetails(userDetails).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    // Handle successful response
+                    Toast.makeText(this@MainActivity, "Sign up successful!", Toast.LENGTH_SHORT).show()
+                    navigateToSecondActivity()
+                } else {
+                    // Handle error response
+                    Toast.makeText(this@MainActivity, "Failed to sign up. Please try again.", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                // Handle failure
+                Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
 
     fun signIn() {
@@ -113,8 +142,6 @@ class MainActivity : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                val account = task.getResult(ApiException::class.java)
-                Toast.makeText(applicationContext,
-                    "Signed in", Toast.LENGTH_SHORT).show()
                 firebaseAuthWithGoogle(account.idToken)
 
             } catch (e: ApiException) {
@@ -129,10 +156,13 @@ class MainActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                   // navigateToSecondActivity()
+
                     val user = auth.currentUser
-                    val displayName = user?.displayName ?: "User"
-                    Toast.makeText(this, "Signed In with Google $displayName" , Toast.LENGTH_SHORT).show()
+                    val displayName = user?.displayName.toString()
+                    val email = user?.email.toString()
+                    val firebaseUUID = user?.uid.toString()
+                    saveUserDetails(displayName, email, firebaseUUID)
+
                 } else {
                     // Sign in failed
                     Toast.makeText(this, "Firebase Authentication Failed", Toast.LENGTH_SHORT).show()
