@@ -7,15 +7,16 @@
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:theme="@style/Theme.QuizWiz3"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.QuizWiz3"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Results"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
@@ -27,25 +28,37 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".Dashboard" />
-
-        <activity
-            android:name=".MultipleChoice"
-            android:exported="true" />
-        <activity
-            android:name=".GameSettings"
-            android:exported="true" />
+        <activity android:name=".Dashboard"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".PlayerSelection"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="true" />
+        <activity
+            android:name=".MultipleChoice"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:exported="true" />
+
+        <activity
+            android:name=".Settings"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:exported="true" />
+
+        <activity android:name=".Profile" />
+        <activity android:name=".GameSettings" />
+        <activity android:name=".HelpSupport" />
+        <activity android:name=".About" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".ChatGPTResult"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,6 +66,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

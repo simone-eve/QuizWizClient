@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 
@@ -33,7 +35,6 @@ class Dashboard : AppCompatActivity() {
 
         val btntvshows: ImageButton = findViewById(R.id.btntvshows)
 
-
         val btnhistory: ImageButton = findViewById(R.id.btnhistory)
 
         Backbtn2.setOnClickListener {
@@ -47,7 +48,6 @@ class Dashboard : AppCompatActivity() {
             val intent = Intent(this, MultipleChoice::class.java)
             startActivity(intent)
         }
-
 
         btnfood.setOnClickListener {
             // Create an Intent to start the PlayerSelection activity
@@ -79,6 +79,45 @@ class Dashboard : AppCompatActivity() {
             val intent = Intent(this, TrueorFalse::class.java)
             startActivity(intent)
         }
-
     }
-}
+        override fun onCreateOptionsMenu(menu: Menu): Boolean {
+            menuInflater.inflate(R.menu.menu, menu)
+            return true
+        }
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.profile -> {
+                    startActivity(Intent(this, Profile::class.java))
+                    return true
+                }
+
+                R.id.dashboard -> {
+                    startActivity(Intent(this, Dashboard::class.java))
+                    return true
+                }
+
+                R.id.settings -> {
+                    startActivity(Intent(this, Settings::class.java))
+                    return true
+                }
+
+                R.id.helpsupport -> {
+                    startActivity(Intent(this, HelpSupport::class.java))
+                    return true
+                }
+
+                R.id.about -> {
+                    startActivity(Intent(this, About::class.java))
+                    return true
+                }
+
+                R.id.logout -> {
+                    finish()
+                    return true
+                }
+            }
+            return super.onOptionsItemSelected(item)
+        }
+    }
+
