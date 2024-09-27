@@ -186,6 +186,9 @@ class TrueorFalse : AppCompatActivity() {
 
     private fun displayScore() {
         resultTextView.text = "Your score: $score/${questions.size}" // Display score
+        val intent = Intent(this, Results::class.java)
+        intent.putExtra("type", "TrueOrFalse")
+        startActivity(intent)
         nextBtn.isEnabled = false // Disable the next button
         trueBtn.isEnabled = false // Disable the true button
         falseBtn.isEnabled = false // Disable the false button

@@ -101,8 +101,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun signIn() {
-        val signInIntent = gsc!!.signInIntent
-        startActivityForResult(signInIntent, 1000)
+        gsc?.signOut()?.addOnCompleteListener {
+            val signInIntent = gsc!!.signInIntent
+            startActivityForResult(signInIntent, 1000)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

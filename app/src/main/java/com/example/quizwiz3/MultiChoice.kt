@@ -168,10 +168,10 @@ class MultiChoice : AppCompatActivity() {
 
     private fun displayFinalScore(category: String) {
         resultTextView.text = "Quiz Finished! Your score: $score/${questions.size}"
-      //  val intent = Intent(this, Results::class.java)
-      //  intent.putExtra("category", category)
-      //  intent.putExtra("type", "MultipleChoice")
-      //  startActivity(intent)
+        val intent = Intent(this, Results::class.java)
+        intent.putExtra("category", category)
+        intent.putExtra("type", "MultipleChoice")
+        startActivity(intent)
         nextbtn.isEnabled = false // Disable the next button if no more questions
     }
 }
