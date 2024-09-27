@@ -55,11 +55,12 @@ class MultiChoice : AppCompatActivity() {
 
         val dashboardbtn: Button = findViewById(R.id.dashboardbtn)
 
-        // Handle Back button to go to PlayerSelection
         dashboardbtn.setOnClickListener {
             val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
+            finish() // Ensure current activity is finished
         }
+
 
         // Set click listener for next button
         nextbtn.setOnClickListener { showNextQuestion() }

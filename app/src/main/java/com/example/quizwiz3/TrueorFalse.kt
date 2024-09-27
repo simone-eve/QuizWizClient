@@ -70,7 +70,9 @@ class TrueorFalse : AppCompatActivity() {
         dashboardbtn.setOnClickListener {
             val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
+            finish() // Ensure current activity is finished
         }
+
     }
 
     private fun showInstructionsDialog() {
