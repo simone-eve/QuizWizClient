@@ -9,12 +9,15 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.androidgamesdk.gametextinput.Settings
 
 class HelpSupport : AppCompatActivity() {
 
     private lateinit var btnSubmitFeedback: Button
     private lateinit var editTextFeedback: EditText
     private lateinit var textViewFAQ: TextView
+    private lateinit var btnBackSettings: Button
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +25,17 @@ class HelpSupport : AppCompatActivity() {
         setContentView(R.layout.activity_help_support) // Ensure you are linking the correct XML layout file
 
         // Initialize views
+        btnBackSettings = findViewById(R.id.btnBackSettings)
         btnSubmitFeedback = findViewById(R.id.btnSubmitFeedback)
         editTextFeedback = findViewById(R.id.editTextFeedback)
         textViewFAQ = findViewById(R.id.textViewFAQ)
 
+        // Back to Settings Menu Button
+        btnBackSettings = findViewById(R.id.btnBackSettings)
+        btnBackSettings.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
         // Set up FAQ text
         textViewFAQ.text = "Frequently Asked Questions:\n1. How to reset my password?\n2. How to contact support?\n3. How to change my email?"
 
@@ -33,6 +43,7 @@ class HelpSupport : AppCompatActivity() {
         btnSubmitFeedback.setOnClickListener {
             submitFeedback()
         }
+
 
         // Remove the unnecessary Intent that restarts this activity
         // val intent = Intent(this, HelpSupport::class.java)
