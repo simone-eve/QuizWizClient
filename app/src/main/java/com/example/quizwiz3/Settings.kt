@@ -2,73 +2,102 @@ package com.example.quizwiz3
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toolbar
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class Settings : AppCompatActivity() {
 
-    // Declare variables for the UI components
-    private lateinit var toolbar: Toolbar
-    private lateinit var profileSettingsButton: Button
-    private lateinit var gameSettingsButton: Button
-    private lateinit var helpSupportButton: Button
-    private lateinit var aboutButton: Button
-    private lateinit var logoutButton: Button
-    private lateinit var imageView: ImageView
+    private lateinit var btnProfileSettings: Button
+    private lateinit var btnGameSettings: Button
+    private lateinit var btnHelpSupport: Button
+    private lateinit var btnAbout: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // Set your XML layout here
+        setContentView(R.layout.activity_settings)
 
-        // Initialize UI components
-        toolbar = findViewById(R.id.toolbar)
-        profileSettingsButton = findViewById(R.id.btnProfileSettings)
-        gameSettingsButton = findViewById(R.id.btnGameSettings)
-        helpSupportButton = findViewById(R.id.btnHelpSupport)
-        aboutButton = findViewById(R.id.btnAbout)
-        logoutButton = findViewById(R.id.btnLogout)
-        imageView = findViewById(R.id.imageView)
+        // Find buttons by their IDs
+        btnProfileSettings = findViewById(R.id.btnProfileSettings)
+        btnGameSettings = findViewById(R.id.btnGameSettings)
+        btnHelpSupport = findViewById(R.id.btnHelpSupport)
+        btnAbout = findViewById(R.id.btnAbout)
 
-        // Set up the toolbar
-        setSupportActionBar(toolbar)
+        val intent = Intent(this, Settings::class.java)
+        startActivity(intent)
 
-        // Set click listeners for buttons
-        profileSettingsButton.setOnClickListener {
-            // Navigate to Profile Settings
-            val intent = Intent(this, MultiChoice::class.java)
+
+        // Set OnClickListeners for the buttons
+        btnProfileSettings.setOnClickListener {
+            // Start Profile Activity
+            val intent = Intent(this, Profile::class.java)
+
             startActivity(intent)
         }
 
-        gameSettingsButton.setOnClickListener {
-            // Navigate to Game Settings
+        btnGameSettings.setOnClickListener {
+            // Start GameSettings Activity
             val intent = Intent(this, GameSettings::class.java)
             startActivity(intent)
         }
 
-        helpSupportButton.setOnClickListener {
-            // Navigate to Help and Support
+        btnHelpSupport.setOnClickListener {
+            // Start HelpSupport Activity
             val intent = Intent(this, HelpSupport::class.java)
             startActivity(intent)
         }
 
-        aboutButton.setOnClickListener {
-            // Navigate to About the App
+        btnAbout.setOnClickListener {
+            // Start About Activity
             val intent = Intent(this, About::class.java)
             startActivity(intent)
         }
 
-        logoutButton.setOnClickListener {
-            // Handle logout action
-            val intent = Intent(this, MultiChoice::class.java)
-            startActivity(intent)
-        }
     }
 
-    private fun setSupportActionBar(toolbar: Toolbar?) {
+    // Inflate the menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    // Handle menu item selection
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                val intent = Intent(this, Profile::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.dashboard -> {
+                val intent = Intent(this, Dashboard::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.settings -> {
+                val intent = Intent(this, Settings::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.helpsupport -> {
+                val intent = Intent(this, HelpSupport::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.about -> {
+                val intent = Intent(this, About::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.logout -> {
+                Toast.makeText(this, "Logout Selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }

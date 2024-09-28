@@ -79,7 +79,7 @@ across various topics, offering a away to learn and compete with friends"
             android:layout_width="366dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="21dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="440dp"
             android:text=" We collect personal information such as your name,
 email address, and username when you create an account. This data is used to personalize
 your experience and connect you with other players."
@@ -100,6 +100,17 @@ your experience and connect you with other players."
             android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnBackSettings"
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="625dp"
+            android:backgroundTint="@color/Pink"
+            android:text="Back To Settings Menu"
+            android:textSize="20dp"
+            app:cornerRadius="0dp" />
     </RelativeLayout>
 
 

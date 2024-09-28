@@ -7,18 +7,17 @@
     android:background="#89CFF0"
     tools:context=".PlayerSelection">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topAppBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#FF1493"
         android:theme="?attr/actionBarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:titleTextColor="@android:color/white"
-        />
+        android:titleTextColor="@android:color/white" />
 
     <ImageButton
         android:id="@+id/singlebtn"

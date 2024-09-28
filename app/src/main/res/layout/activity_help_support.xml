@@ -17,9 +17,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="?attr/actionBarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:background="@color/Pink"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
+            android:minHeight="?attr/actionBarSize" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -87,7 +88,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textViewFeedback"
+            android:id="@+id/editTextFeedback"
             android:layout_width="373dp"
             android:layout_height="87dp"
             android:layout_marginLeft="17dp"
@@ -98,7 +99,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btnProfileSettings"
+            android:id="@+id/btnSubmitFeedback"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="100dp"
@@ -108,18 +109,18 @@
             android:textSize="20dp"
             app:cornerRadius="0dp" />
 
-
         <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnBackSettings"
+            android:layout_width="269dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/BabyBlue"
-            android:text="LOGOUT"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="679dp"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@color/black" />
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="680dp"
+            android:backgroundTint="@color/Pink"
+            android:text="Back To Settings Menu"
+            android:textSize="20dp"
+            app:cornerRadius="0dp" />
+
+
     </RelativeLayout>
 
 

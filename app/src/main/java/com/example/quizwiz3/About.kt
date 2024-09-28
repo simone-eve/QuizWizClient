@@ -2,36 +2,36 @@ package com.example.quizwiz3
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.androidgamesdk.gametextinput.Settings
 
-    class About : AppCompatActivity() {
+class About : AppCompatActivity() {
+
+        private lateinit var btnBackSettings: Button
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+
             setContentView(R.layout.activity_about)
 
-            // Setup toolbar
-            val toolbar: Toolbar = findViewById(R.id.toolbar)
-            setSupportActionBar(toolbar)
-            supportActionBar?.title = "About QuizWiz"
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            btnBackSettings = findViewById(R.id.btnBackSettings)
 
-            // Handle Logout Button click
-            val btnLogout: Button = findViewById(R.id.btnLogout)
-            btnLogout.setOnClickListener {
-                // Log out the user (you can customize this according to your authentication flow)
-                logoutUser()
+
+            // Back to Settings Menu Button
+            btnBackSettings = findViewById(R.id.btnBackSettings)
+            btnBackSettings.setOnClickListener {
+                val intent = Intent(this, Settings::class.java)
+                startActivity(intent)
             }
-        }
+            val intent = Intent(this, About::class.java)
 
-        private fun logoutUser() {
-            // Perform the logout logic here
-            // This can be signing out of Firebase Auth or clearing shared preferences, etc.
-            val intent = Intent(this, Login::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            finish()
         }
     }
+
+
+

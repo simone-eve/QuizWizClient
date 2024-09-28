@@ -3,7 +3,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+
+import android.view.Menu
+import android.view.MenuItem
+
 import android.widget.Button
 import android.widget.ImageButton
 class Dashboard : AppCompatActivity() {
@@ -18,6 +21,7 @@ class Dashboard : AppCompatActivity() {
         val btndisney: ImageButton = findViewById(R.id.btndisney)
         val btnmusic: ImageButton = findViewById(R.id.btnmusic)
         val btntvshows: ImageButton = findViewById(R.id.btntvshows)
+
         val btnhistory: ImageButton = findViewById(R.id.btnhistory)
 
         // Handle Back button to go to PlayerSelection
@@ -32,7 +36,6 @@ class Dashboard : AppCompatActivity() {
             intent.putExtra("category", "Animals")
             startActivity(intent)
         }
-
 
         btnfood.setOnClickListener {
             val intent = Intent(this, MultiChoice::class.java)
@@ -63,5 +66,47 @@ class Dashboard : AppCompatActivity() {
             intent.putExtra("category", "History")
             startActivity(intent)
         }
+
     }
-}
+        override fun onCreateOptionsMenu(menu: Menu): Boolean {
+            menuInflater.inflate(R.menu.menu, menu)
+            return true
+        }
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.profile -> {
+                    startActivity(Intent(this, Profile::class.java))
+                    return true
+                }
+
+                R.id.dashboard -> {
+                    startActivity(Intent(this, Dashboard::class.java))
+                    return true
+                }
+
+                R.id.settings -> {
+                    startActivity(Intent(this, Settings::class.java))
+                    return true
+                }
+
+                R.id.helpsupport -> {
+                    startActivity(Intent(this, HelpSupport::class.java))
+                    return true
+                }
+
+                R.id.about -> {
+                    startActivity(Intent(this, About::class.java))
+                    return true
+                }
+
+                R.id.logout -> {
+                    finish()
+                    return true
+                }
+            }
+            return super.onOptionsItemSelected(item)
+        }
+    }
+
+
