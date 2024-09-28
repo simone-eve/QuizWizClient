@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:background="@color/BabyBlue"
+    tools:context=".Login">
 
     <ImageView
         android:id="@+id/img.png"
@@ -63,8 +64,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:backgroundTint="#FF1493"
         android:text="@string/login"
-        android:textColor="#FFFFFFFF"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
@@ -74,8 +76,8 @@
 
     <TextView
         android:id="@+id/tvRedirectSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="258dp"
+        android:layout_height="36dp"
         android:layout_margin="15dp"
         android:clickable="true"
         android:gravity="center_horizontal"

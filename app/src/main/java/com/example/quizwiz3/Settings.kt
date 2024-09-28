@@ -30,10 +30,12 @@ class Settings : AppCompatActivity() {
         val intent = Intent(this, Settings::class.java)
         startActivity(intent)
 
+
         // Set OnClickListeners for the buttons
         btnProfileSettings.setOnClickListener {
             // Start Profile Activity
             val intent = Intent(this, Profile::class.java)
+
             startActivity(intent)
         }
 
@@ -54,6 +56,7 @@ class Settings : AppCompatActivity() {
             val intent = Intent(this, About::class.java)
             startActivity(intent)
         }
+
     }
 
     // Inflate the menu

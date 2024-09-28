@@ -1,19 +1,18 @@
 package com.example.quizwiz3
-
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.security.cert.X509Certificate
+import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
+
 object RetrofitClient {
 
-   // private const val BASE_URL = "http://10.0.2.2:5200"
-    private const val BASE_URL = "http://10.0.2.2:5200"
-
-
+    private const val BASE_URL = "https://quizwizapi-bwhegqg7bcdze9gy.canadacentral-01.azurewebsites.net/"
 
     // Create a custom OkHttpClient that trusts all certificates
     private val okHttpClient: OkHttpClient by lazy {
@@ -28,6 +27,10 @@ object RetrofitClient {
 
         OkHttpClient.Builder()
             .sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
+            .hostnameVerifier { _, _ -> true } // This bypasses hostname verification
+            .connectTimeout(10, TimeUnit.MINUTES)  // Set connection timeout to 30 seconds
+            .readTimeout(10, TimeUnit.MINUTES)     // Set read timeout to 30 seconds
+            .writeTimeout(10, TimeUnit.MINUTES)
             .build()
     }
 

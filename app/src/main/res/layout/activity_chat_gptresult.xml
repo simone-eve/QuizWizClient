@@ -5,31 +5,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/BabyBlue"
     tools:context=".ChatGPTResult">
 
-    <Button
-        android:id="@+id/chatgptButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="153dp"
-        android:text="ChatGPT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="204dp"
-        android:layout_height="161dp"
+        android:id="@+id/tvQResult"
+        android:layout_width="279dp"
+        android:layout_height="506dp"
         android:layout_marginStart="176dp"
         android:layout_marginEnd="188dp"
-        android:layout_marginBottom="324dp"
-        android:text="Answer"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/rounded_corner_background"
+        android:text="\n Answer"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="299dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="596dp"
+        android:background="@drawable/rounded_corner_background"
+        android:text="\n Question"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.317"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@ class About : AppCompatActivity() {
 
             btnBackSettings = findViewById(R.id.btnBackSettings)
 
+
             // Back to Settings Menu Button
             btnBackSettings = findViewById(R.id.btnBackSettings)
             btnBackSettings.setOnClickListener {
@@ -27,6 +28,7 @@ class About : AppCompatActivity() {
                 startActivity(intent)
             }
             val intent = Intent(this, About::class.java)
+
             startActivity(intent)
         }
     }

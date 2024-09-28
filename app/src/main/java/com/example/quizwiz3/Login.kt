@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 
-class LoginActivity : AppCompatActivity() {
+class Login : AppCompatActivity() {
 
 
     var gso: GoogleSignInOptions? = null
@@ -44,10 +44,10 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build();
         gsc = GoogleSignIn.getClient(this, gso!!)
-        val acct = GoogleSignIn.getLastSignedInAccount(this)
-        //if (acct != null) {
-       //     navigateToSecondActivity()
-       // }
+//        val acct = GoogleSignIn.getLastSignedInAccount(this)
+//        if (acct != null) {
+//            navigateToSecondActivity()
+//        }
         val googleSignInButton = findViewById<SignInButton>(R.id.signIn)
         googleSignInButton.setOnClickListener {signIn()}
 
@@ -73,17 +73,19 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
             if (it.isSuccessful) {
                 Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT).show()
-               // startActivity(Intent(this, Dashboard::class.java))
+                startActivity(Intent(this, Dashboard::class.java))
                 finish()
             } else {
-                Toast.makeText(this, "Log In failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Incorrect Details. Please try again", Toast.LENGTH_LONG).show()
             }
         }
     }
 
     fun signIn() {
-        val signInIntent = gsc!!.signInIntent
-        startActivityForResult(signInIntent, 1000)
+        gsc?.signOut()?.addOnCompleteListener {
+            val signInIntent = gsc!!.signInIntent
+            startActivityForResult(signInIntent, 1000)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -122,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun navigateToSecondActivity() {
         finish()
-        val intent: Intent = Intent(this@LoginActivity, Dashboard::class.java)
+        val intent: Intent = Intent(this@Login, Dashboard::class.java)
         startActivity(intent)
     }
 }

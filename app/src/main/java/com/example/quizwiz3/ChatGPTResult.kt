@@ -1,5 +1,6 @@
 package com.example.quizwiz3
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -27,36 +28,64 @@ import java.util.HashMap
 
 class ChatGPTResult : AppCompatActivity() {
 
-    private lateinit var textView: TextView
+    private lateinit var textViewAnswer: TextView
+    private lateinit var textViewQuestion: TextView
     private val stringAPIKey = "AIzaSyAC0kKEZg_UjPUcKIA93qnEoPSdudgvalw"
-    private lateinit var button: Button
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_chat_gptresult)
+        val question = intent.getStringExtra("selectedQuestion") ?: "Default"
+        val optionsList = intent.getStringArrayListExtra("optionsList")
 
-        textView = findViewById(R.id.textView)
-        button = findViewById<Button>(R.id.chatgptButton)
-        button.setOnClickListener {
+        textViewAnswer = findViewById(R.id.tvQResult)
+        textViewQuestion = findViewById(R.id.tvQuestion)
+        val options = optionsList?.joinToString(", ")
+        val fullQuestion = question + options
+
+        if(optionsList == null)
+        {
             lifecycleScope.launch {
                 try {
                     val generativeModel = GenerativeModel(
                         modelName = "gemini-1.5-flash",
                         apiKey = stringAPIKey
                     )
-                    val prompt = "How many planets are in our solar system"
+                    val prompt = question
                     val response = generativeModel.generateContent(prompt)
                     print(response.text)
-                    textView.text = response.text
-                    button.tooltipText = response.text
+                    textViewAnswer.text = "\n " + response.text
+                    textViewQuestion.text = "\n " + prompt
                 } catch (e: Exception) {
                     e.printStackTrace()
                     Toast.makeText(this@ChatGPTResult, "Error generating content", Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
+        else{
+            lifecycleScope.launch {
+                try {
+                    val generativeModel = GenerativeModel(
+                        modelName = "gemini-1.5-flash",
+                        apiKey = stringAPIKey
+                    )
+                    val prompt = fullQuestion
+                    val response = generativeModel.generateContent(prompt)
+                    print(response.text)
+                    textViewAnswer.text = "\n " + response.text
+                    textViewQuestion.text = "\n " + fullQuestion
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    Toast.makeText(this@ChatGPTResult, "Error generating content", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+
+
+
 
     }
 

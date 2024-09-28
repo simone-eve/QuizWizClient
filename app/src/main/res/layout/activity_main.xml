@@ -5,6 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@color/BabyBlue"
     tools:context=".MainActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -29,7 +31,6 @@
         android:layout_marginTop="230dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="453dp"
-        android:autofillHints="password"
         android:ems="10"
         android:hint="@string/Name"
         android:inputType="textPassword"
@@ -84,14 +85,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:backgroundTint="#FF1493"
         android:text="@string/signed"
-        android:textColor="#FFFFFFFF"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.677" />
 
     <TextView
         android:id="@+id/tvRedirectLogin"
@@ -107,12 +109,12 @@
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.638" />
+        app:layout_constraintVertical_bias="0.729" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signIn"
-        android:layout_width="206dp"
-        android:layout_height="73dp"
+        android:layout_width="208dp"
+        android:layout_height="58dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -123,6 +125,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.876" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.951" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

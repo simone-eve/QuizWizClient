@@ -45,6 +45,7 @@ class HelpSupport : AppCompatActivity() {
         }
 
 
+
         // Remove the unnecessary Intent that restarts this activity
         // val intent = Intent(this, HelpSupport::class.java)
         // startActivity(intent)
@@ -63,6 +64,14 @@ class HelpSupport : AppCompatActivity() {
             editTextFeedback.text.clear()
         } else {
             Toast.makeText(this, "Please enter your feedback.", Toast.LENGTH_SHORT).show()
-        }
+
+        private fun logoutUser() {
+            // Perform the logout logic here
+            // For example, if using Firebase Auth, you could call FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, Login::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+
     }
 }

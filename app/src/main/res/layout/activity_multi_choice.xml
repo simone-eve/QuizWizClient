@@ -5,36 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#89CFF0"
-    tools:context=".MultipleChoice">
+    tools:context=".MultiChoice">
 
+    <Button
+        android:id="@+id/dashboardbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF1493"
+        android:text="DashBoard"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="147dp"
+        android:layout_height="43dp"
+        android:text=" "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topAppBar"
+        app:layout_constraintVertical_bias="0.434" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topAppBar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="413dp"
+        android:layout_height="69dp"
         android:background="#FF1493"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintTop_toTopOf="parent"
+        android:titleTextColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
-        android:titleTextColor="@android:color/white"
-
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/QuestionTXT"
-        android:layout_width="415dp"
-        android:layout_height="85dp"
+        android:layout_width="420dp"
+        android:layout_height="116dp"
+        android:background="#89CFF0"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:text=" "
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text=" Question"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/answer1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -42,6 +74,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BACK"
+        android:textStyle="bold"
+        android:textColor="#000000"
         android:backgroundTint="#FF1493"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +89,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"
+        android:textStyle="bold"
+        android:textColor="#000000"
         android:backgroundTint="#FF1493"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,12 +105,13 @@
         android:layout_height="60dp"
         android:backgroundTint="#FF1493"
         android:text="option1"
+        android:textStyle="bold"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         app:layout_constraintVertical_bias="0.53" />
 
     <Button
@@ -83,7 +120,8 @@
         android:layout_height="60dp"
         android:backgroundTint="#FF1493"
         android:text="option2"
-
+        android:textStyle="bold"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -97,6 +135,8 @@
         android:layout_height="58dp"
         android:backgroundTint="#FF1493"
         android:text="option3"
+        android:textStyle="bold"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -106,15 +146,14 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="238dp"
-        android:layout_height="154dp"
+        android:layout_width="292dp"
+        android:layout_height="141dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28"
+        app:layout_constraintVertical_bias="0.32"
         app:srcCompat="@drawable/sofia" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
