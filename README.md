@@ -1,4 +1,5 @@
 <div style="text-align: center;">
     <h1>QuizWiz - A Quiz App with API Integration</h1>
 </div>
-<ul>Description</ul>
+<ul><li><strong>Description</strong></li></ul>
+
