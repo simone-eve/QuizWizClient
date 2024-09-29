@@ -6,6 +6,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import retrofit2.Call
@@ -95,16 +96,22 @@ class MultiChoice : AppCompatActivity() {
     private fun handleAnswerSelection(button: Button, answer: String) {
         selectedAnswer = answer
         val currentQuestion = questions[currentQuestionIndex]
+        val imageView2: ImageView = findViewById(R.id.imageView2)
 
         if (answer == currentQuestion.answer) {
             button.setBackgroundColor(Color.GREEN) // Correct answer turns green
             score++
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
+            // Set happy emoji
+            imageView2.setImageResource(R.drawable.smile) // Replace with your happy emoji drawable
         } else {
             button.setBackgroundColor(Color.RED) // Incorrect answer turns red
             Toast.makeText(this, "Incorrect! The correct answer is: ${currentQuestion.answer}", Toast.LENGTH_LONG).show()
+            // Set sad emoji
+            imageView2.setImageResource(R.drawable.sad) // Replace with your sad emoji drawable
         }
     }
+
 
     private fun showNextQuestion(category: String) {
         if (selectedAnswer != null) {

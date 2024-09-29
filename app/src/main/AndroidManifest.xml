@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,64 +16,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
-        <activity
 
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".QuestionsAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
-            android:exported="true" />
-        <activity
-            android:name=".ChatGPTResult"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".MultiChoice"
-            android:exported="true" />
-
-        <activity
-            android:name=".PlayerSelection"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-
-            android:exported="true" />
-        <activity
-            android:name=".MultipleChoice"
+        <!-- Activities -->
+        <activity android:name=".Profile" android:exported="false" />
+        <activity android:name=".QuestionsAdapter" android:exported="false" />
+        <activity android:name=".Login" android:exported="true" />
+        <activity android:name=".MainActivity" android:exported="true" />
+        <activity android:name=".ChatGPTResult" android:exported="true" />
+        <activity android:name=".TrueorFalse" android:exported="true" />
+        <activity android:name=".MultiChoice" android:exported="true" />
+        <activity android:name=".PlayerSelection"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="true" />
-
-        <activity
-            android:name=".Settings"
+        <activity android:name=".Settings"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="true" />
+        <activity android:name=".GameSettings" android:exported="false" />
+        <activity android:name=".HelpSupport" android:exported="false" />
+        <activity android:name=".About" android:exported="false" />
+        <activity android:name=".Results" android:exported="true" />
 
-        <activity android:name=".Profile" />
-        <activity android:name=".GameSettings" />
-        <activity android:name=".HelpSupport" />
-        <activity android:name=".About" />
-
+        <!-- Launcher Activity -->
         <activity
-
-            android:name=".LoginActivity"
-            android:exported="false" />
-
-
-        <activity
-            android:name=".Results"
-            android:exported="true" />
-        <activity
-
-            android:name=".ChatGPTResult"
+            android:name=".Dashboard"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

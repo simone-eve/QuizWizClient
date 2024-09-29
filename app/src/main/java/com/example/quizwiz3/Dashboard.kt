@@ -16,7 +16,6 @@ class Dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val Backbtn2: Button = findViewById(R.id.Backbtn2)
         val animalbtn: ImageButton = findViewById(R.id.animalbtn)
         val btnfood: ImageButton = findViewById(R.id.btnfood)
         val btndisney: ImageButton = findViewById(R.id.btndisney)
@@ -26,10 +25,7 @@ class Dashboard : AppCompatActivity() {
         val btnhistory: ImageButton = findViewById(R.id.btnhistory)
 
         // Handle Back button to go to PlayerSelection
-        Backbtn2.setOnClickListener {
-            val intent = Intent(this, PlayerSelection::class.java)
-            startActivity(intent)
-        }
+
 
         animalbtn.setOnClickListener {
             Log.d("Dashboard", "Animal button clicked, launching MultiChoice")
@@ -111,5 +107,6 @@ class Dashboard : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
 
     }
+}
 
 

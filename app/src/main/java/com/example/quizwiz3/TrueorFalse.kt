@@ -11,6 +11,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 
 class TrueorFalse : AppCompatActivity() {
@@ -22,6 +24,9 @@ class TrueorFalse : AppCompatActivity() {
     private lateinit var nextBtn: Button
     private lateinit var resultTextView: TextView
     private lateinit var dashboardbtn: Button
+
+    private lateinit var imageView: ImageView
+
 
     private var questions: List<TrueOrFalseQuestion> = emptyList()
     private var currentQuestionIndex = 0
@@ -38,6 +43,8 @@ class TrueorFalse : AppCompatActivity() {
         falseBtn = findViewById(R.id.falsebtn)
         nextBtn = findViewById(R.id.nextbtn)
         resultTextView = findViewById(R.id.resultTextView)
+        imageView = findViewById(R.id.imageView)
+
 
         // Get the category passed from Dashboard
         val category = intent.getStringExtra("category") ?: "Default"
@@ -143,6 +150,9 @@ class TrueorFalse : AppCompatActivity() {
             } else {
                 falseBtn.setBackgroundColor(resources.getColor(android.R.color.holo_green_light))
             }
+
+            // Set happy emoji
+            imageView.setImageResource(R.drawable.smile) // Replace with your happy emoji drawable
         } else {
             Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show()
 
@@ -152,12 +162,19 @@ class TrueorFalse : AppCompatActivity() {
             } else {
                 falseBtn.setBackgroundColor(resources.getColor(android.R.color.holo_red_light))
             }
+
+            // Set sad emoji
+            imageView.setImageResource(R.drawable.sad) // Replace with your sad emoji drawable
         }
+
+        // Make the ImageView visible
+        imageView.visibility = View.VISIBLE
 
         // Disable the answer buttons after selection
         trueBtn.isEnabled = false
         falseBtn.isEnabled = false
     }
+
 
     private fun showNextQuestion() {
         if (selectedAnswer != null) {

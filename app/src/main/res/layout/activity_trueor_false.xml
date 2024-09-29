@@ -22,7 +22,7 @@
         android:id="@+id/questionTXT2"
         android:layout_width="420dp"
         android:layout_height="116dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="228dp"
         android:background="#89CFF0"
         android:elevation="8dp"
         android:gravity="center"
@@ -141,6 +141,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.137"
-        app:srcCompat="@drawable/avo" />
+        app:srcCompat="@drawable/quizstart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

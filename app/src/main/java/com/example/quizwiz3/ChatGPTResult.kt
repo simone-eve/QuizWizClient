@@ -1,9 +1,11 @@
 package com.example.quizwiz3
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -30,9 +32,10 @@ class ChatGPTResult : AppCompatActivity() {
 
     private lateinit var textViewAnswer: TextView
     private lateinit var textViewQuestion: TextView
+    private lateinit var backbtn: Button;
     private val stringAPIKey = "AIzaSyAC0kKEZg_UjPUcKIA93qnEoPSdudgvalw"
 
-    @SuppressLint("SuspiciousIndentation")
+    @SuppressLint("SuspiciousIndentation", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -40,6 +43,14 @@ class ChatGPTResult : AppCompatActivity() {
         val question = intent.getStringExtra("selectedQuestion") ?: "Default"
         val optionsList = intent.getStringArrayListExtra("optionsList")
 
+
+        val backbtn: Button = findViewById(R.id.backbtn)
+
+        // Handle Back button to go to PlayerSelection
+        backbtn.setOnClickListener {
+            val intent = Intent(this, Results::class.java)
+            startActivity(intent)
+        }
         textViewAnswer = findViewById(R.id.tvQResult)
         textViewQuestion = findViewById(R.id.tvQuestion)
         val options = optionsList?.joinToString(", ")
