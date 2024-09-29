@@ -128,6 +128,17 @@
             android:text="" />
 
 
+        <Button
+            android:id="@+id/btnBackSettings"
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="630dp"
+            android:backgroundTint="@color/Pink"
+            android:text="Back To Settings Menu"
+            android:textSize="20dp"
+            app:cornerRadius="0dp" />
+
         <Spinner
             android:id="@+id/languageSpinner"
             android:layout_width="wrap_content"

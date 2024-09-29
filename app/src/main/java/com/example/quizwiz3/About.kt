@@ -11,6 +11,7 @@ import com.google.androidgamesdk.gametextinput.Settings
 
 class About : AppCompatActivity() {
 
+
     private lateinit var btnBackSettings: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,13 +26,16 @@ class About : AppCompatActivity() {
         btnBackSettings = findViewById(R.id.btnBackSettings)
         btnBackSettings.setOnClickListener {
             val intent = Intent(this, Settings::class.java)
+
             startActivity(intent)
         }
         val intent = Intent(this, About::class.java)
 
         startActivity(intent)
     }
+
 }
+
 
 
 

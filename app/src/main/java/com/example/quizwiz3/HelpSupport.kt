@@ -37,13 +37,16 @@ class HelpSupport : AppCompatActivity() {
             startActivity(intent)
         }
         // Set up FAQ text
+
         textViewFAQ.text =
             "Frequently Asked Questions:\n1. How to reset my password?\n2. How to contact support?\n3. How to change my email?"
+
 
         // Set OnClickListener for submit feedback button
         btnSubmitFeedback.setOnClickListener {
             submitFeedback()
         }
+
 
 
         // Remove the unnecessary Intent that restarts this activity
@@ -65,6 +68,7 @@ class HelpSupport : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Please enter your feedback.", Toast.LENGTH_SHORT).show()
 
+
             fun logoutUser() {
                 // Perform the logout logic here
                 // For example, if using Firebase Auth, you could call FirebaseAuth.getInstance().signOut()
@@ -77,5 +81,6 @@ class HelpSupport : AppCompatActivity() {
         }
     }
 }
+
 
 
