@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.quizwiz3.R.id
 
 class PlayerSelection : AppCompatActivity() {
@@ -19,6 +20,9 @@ class PlayerSelection : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_selection)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         // Find buttons by their IDs
         singlebtn = findViewById(id.singlebtn)

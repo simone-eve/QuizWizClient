@@ -15,11 +15,21 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="48dp"
         android:contentDescription="@null"
-        android:src="@drawable/logo"
+        android:src="@drawable/quizwizlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="?attr/actionBarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:background="@color/Pink"
+        android:minHeight="?attr/actionBarSize"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etEmailAddress"
@@ -64,9 +74,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:backgroundTint="#FF1493"
+        android:backgroundTint="@color/Pink"
         android:text="@string/login"
-        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
@@ -88,10 +99,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="0.716" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signIn"

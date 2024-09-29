@@ -38,7 +38,7 @@
 
             android:exported="true" />
         <activity
-            android:name=".MultipleChoice"
+            android:name=".MultiChoice"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="true" />
 
@@ -53,16 +53,10 @@
         <activity android:name=".About" />
 
         <activity
-
-            android:name=".LoginActivity"
+            android:name=".Login"
             android:exported="false" />
 
-
         <activity
-            android:name=".Results"
-            android:exported="true" />
-        <activity
-
             android:name=".ChatGPTResult"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
 
