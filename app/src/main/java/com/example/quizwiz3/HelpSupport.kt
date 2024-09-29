@@ -37,7 +37,10 @@ class HelpSupport : AppCompatActivity() {
             startActivity(intent)
         }
         // Set up FAQ text
-        textViewFAQ.text = "Frequently Asked Questions:\n1. How to reset my password?\n2. How to contact support?\n3. How to change my email?"
+
+        textViewFAQ.text =
+            "Frequently Asked Questions:\n1. How to reset my password?\n2. How to contact support?\n3. How to change my email?"
+
 
         // Set OnClickListener for submit feedback button
         btnSubmitFeedback.setOnClickListener {
@@ -65,13 +68,19 @@ class HelpSupport : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Please enter your feedback.", Toast.LENGTH_SHORT).show()
 
-        private fun logoutUser() {
-            // Perform the logout logic here
-            // For example, if using Firebase Auth, you could call FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, Login::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
 
+            fun logoutUser() {
+                // Perform the logout logic here
+                // For example, if using Firebase Auth, you could call FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, Login::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+
+            }
+        }
     }
 }
+
+
+
