@@ -19,17 +19,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.064" />
+
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="147dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="592dp"
+        android:text=" "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.843" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
-        android:layout_width="372dp"
-        android:layout_height="586dp"
+        android:layout_width="412dp"
+        android:layout_height="599dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
+        app:layout_constraintTop_toBottomOf="@+id/tvResults"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

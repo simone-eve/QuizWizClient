@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 class Dashboard : AppCompatActivity() {
@@ -63,5 +65,46 @@ class Dashboard : AppCompatActivity() {
             intent.putExtra("category", "History")
             startActivity(intent)
         }
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                startActivity(Intent(this, Profile::class.java))
+                return true
+            }
+
+            R.id.dashboard -> {
+                startActivity(Intent(this, Dashboard::class.java))
+                return true
+            }
+
+            R.id.settings -> {
+                startActivity(Intent(this, Settings::class.java))
+                return true
+            }
+
+            R.id.helpsupport -> {
+                startActivity(Intent(this, HelpSupport::class.java))
+                return true
+            }
+
+            R.id.about -> {
+                startActivity(Intent(this, About::class.java))
+                return true
+            }
+
+            R.id.logout -> {
+                startActivity(Intent(this, Logout::class.java))
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

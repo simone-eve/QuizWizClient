@@ -167,10 +167,12 @@ class MultiChoice : AppCompatActivity() {
     }
 
     private fun displayFinalScore(category: String) {
-        resultTextView.text = "Quiz Finished! Your score: $score/${questions.size}"
+        // resultTextView.text = "Quiz Finished! Your score: $score/${questions.size}"
         val intent = Intent(this, Results::class.java)
         intent.putExtra("category", category)
         intent.putExtra("type", "MultipleChoice")
+        intent.putExtra("score", "$score")
+        intent.putExtra("totalQuestions", "${questions.size}")
         startActivity(intent)
         nextbtn.isEnabled = false // Disable the next button if no more questions
     }

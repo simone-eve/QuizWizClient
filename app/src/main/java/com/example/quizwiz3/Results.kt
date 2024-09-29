@@ -24,6 +24,7 @@ class Results : AppCompatActivity() {
     private lateinit var rvCategories: RecyclerView
     private lateinit var QuestionsAdapter: QuestionsAdapter
     private lateinit var QuestionsAdapterTrueOrFalse: QuestionsAdapterTrueOrFalse
+    private lateinit var resultTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,13 +35,16 @@ class Results : AppCompatActivity() {
         cachedQuestionsTF = QuestionCache.cachedQuestionsTF
 
         rvCategories = findViewById<RecyclerView>(R.id.rvCategories)
+        resultTextView = findViewById(R.id.resultTextView)
         val category = intent.getStringExtra("category") ?: "Default"
         val type = intent.getStringExtra("type") ?: "Default"
+        val score = intent.getStringExtra("score") ?: "Default"
+        val totalQuestions = intent.getStringExtra("totalQuestions") ?: "Default"
 
+        resultTextView.text = "Quiz Finished! Your score: $score/${totalQuestions}"
         if(type == "MultipleChoice")
         {
             fetchQuestionsMultipleChoice(cachedQuestionsMC)
-            Toast.makeText(this@Results, "$category", Toast.LENGTH_SHORT).show()
 
         } else
         {
@@ -54,7 +58,6 @@ class Results : AppCompatActivity() {
 
             // Convert the options from a map to a list
             val optionsList = selectedQuestion.options.values.toList()
-            Toast.makeText(this@Results, "working adapter", Toast.LENGTH_SHORT).show()
             // Pass both question and options to the next activity
             val intent = Intent(this, ChatGPTResult::class.java)
             intent.putExtra("selectedQuestion", selectedQuestion.questionText)
