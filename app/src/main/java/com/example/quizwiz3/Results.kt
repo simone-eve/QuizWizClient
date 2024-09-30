@@ -49,7 +49,7 @@ class Results : AppCompatActivity() {
         } else
         {
             fetchQuestionsTrueOrFalse(cachedQuestionsTF)
-            Toast.makeText(this@Results, "fetching tf questions", Toast.LENGTH_SHORT).show()
+
         }
     }
 

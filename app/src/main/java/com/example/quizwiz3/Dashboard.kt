@@ -8,6 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.appcompat.widget.Toolbar
+
 class Dashboard : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +23,9 @@ class Dashboard : AppCompatActivity() {
         val btnmusic: ImageButton = findViewById(R.id.btnmusic)
         val btntvshows: ImageButton = findViewById(R.id.btntvshows)
         val btnhistory: ImageButton = findViewById(R.id.btnhistory)
+
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
+        setSupportActionBar(toolbar)
 
         // Handle Back button to go to PlayerSelection
         Backbtn2.setOnClickListener {
@@ -107,4 +112,6 @@ class Dashboard : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 }
