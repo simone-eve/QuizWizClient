@@ -59,6 +59,10 @@ class ChatGPTResult : AppCompatActivity() {
 
         if(optionsList == null)
         {
+ //___________code attribution___________
+//The following code was taken from Medium
+//Author: Bhoomi Vagasiya
+//Link: https://medium.com/@bhoomigadhiya/integrating-googles-gemini-into-the-android-app-520508975c2e
             lifecycleScope.launch {
                 try {
                     val generativeModel = GenerativeModel(
@@ -95,6 +99,7 @@ class ChatGPTResult : AppCompatActivity() {
             }
         }
     }
+    //___________end___________
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)

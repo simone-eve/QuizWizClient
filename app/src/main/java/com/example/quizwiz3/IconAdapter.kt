@@ -5,7 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-
+//___________code attribution___________
+//The following code was taken from Medium
+//Author: Ranjan Mishra
+//Link: https://ranjanmishramed.medium.com/how-to-create-custom-adapter-for-recycler-view-android-kotlin-f8da7fc6260e
 class IconAdapter(
     private val icons: List<Int>,
     private val onIconClick: (Int) -> Unit // Lambda instead of interface
@@ -32,4 +35,5 @@ class IconAdapter(
         return icons.size
     }
 }
+//___________end___________
 
