@@ -38,29 +38,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/backbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/Pink"
-        android:text="BACK"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.989" />
-
     <TextView
         android:id="@+id/tvQuestion"
         android:layout_width="299dp"
         android:layout_height="75dp"
         android:layout_marginStart="176dp"
         android:layout_marginEnd="188dp"
-        android:layout_marginBottom="576dp"
+        android:layout_marginBottom="640dp"
         android:background="@drawable/rounded_corner_background"
         android:text="\n Question"
         android:textStyle="bold"

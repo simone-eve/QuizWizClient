@@ -36,12 +36,13 @@ class TrueorFalse : AppCompatActivity() {
     private var score = 0
     private var selectedAnswer: Boolean? = null // Store the selected answer
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trueor_false)
 
         // Initialize views
-        questionTXT2 = findViewById(R.id.questionTXT2)
+        questionTXT2 = findViewById(R.id.questionText)
         trueBtn = findViewById(R.id.truebtn)
         falseBtn = findViewById(R.id.falsebtn)
         nextBtn = findViewById(R.id.nextbtn)
@@ -60,7 +61,7 @@ class TrueorFalse : AppCompatActivity() {
         // Fetch questions for the category
         fetchQuestions(category)
 
-        Backbtn2 = findViewById(R.id.backbtn2)
+        Backbtn2 = findViewById(R.id.Backbtn2)
         Backbtn2.setOnClickListener {
             showPreviousQuestion()
         }

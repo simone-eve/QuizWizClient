@@ -35,7 +35,7 @@ class ChatGPTResult : AppCompatActivity() {
 
     private lateinit var textViewAnswer: TextView
     private lateinit var textViewQuestion: TextView
-    private lateinit var backbtn: Button;
+
     private val stringAPIKey = "AIzaSyAC0kKEZg_UjPUcKIA93qnEoPSdudgvalw"
 
     @SuppressLint("SuspiciousIndentation", "MissingInflatedId")
@@ -50,13 +50,7 @@ class ChatGPTResult : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
 
-        val backbtn: Button = findViewById(R.id.backbtn)
 
-        // Handle Back button to go to PlayerSelection
-        backbtn.setOnClickListener {
-            val intent = Intent(this, Results::class.java)
-            startActivity(intent)
-        }
         textViewAnswer = findViewById(R.id.tvQResult)
         textViewQuestion = findViewById(R.id.tvQuestion)
         val options = optionsList?.joinToString(", ")

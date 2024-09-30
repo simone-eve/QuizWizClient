@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
+        android:background="@color/cardview_light_background"
         android:layout_marginTop="300dp"
         android:layout_marginRight="15dp"
         android:autofillHints="emailAddress"
@@ -46,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="376dp"
+        android:background="@color/cardview_light_background"
         android:layout_marginRight="15dp"
         android:autofillHints="password"
         android:ems="10"
@@ -68,23 +70,21 @@
         android:theme="?attr/actionBarTheme"
         tools:ignore="MissingConstraints" />
 
+
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:backgroundTint="@color/Pink"
-        android:text="@string/login"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="17dp"
+        android:layout_width="115dp"
+        android:layout_height="43dp"
+        android:backgroundTint="#FF1493"
+        android:text="login"
+        android:textColor="#000000"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666"
-        app:cornerRadius="0dp" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <TextView
         android:id="@+id/tvRedirectSignUp"
