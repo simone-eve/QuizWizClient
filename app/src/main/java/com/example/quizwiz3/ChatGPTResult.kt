@@ -25,6 +25,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.ai.client.generativeai.BuildConfig
 import com.google.ai.client.generativeai.GenerativeModel
+import com.google.androidgamesdk.gametextinput.Settings
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONException

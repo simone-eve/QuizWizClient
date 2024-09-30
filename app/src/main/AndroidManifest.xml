@@ -34,13 +34,13 @@
             android:theme="@style/Theme.QuizWiz3"
             android:exported="true" />
         <activity android:name=".GameSettings" android:exported="false" android:theme="@style/Theme.QuizWiz3"/>
-        <activity android:name=".SplashScreen" android:exported="false" android:theme="@style/Theme.QuizWiz3"/>
+        <activity android:name=".HelpSupport" android:exported="false" android:theme="@style/Theme.QuizWiz3"/>
         <activity android:name=".About" android:exported="true" android:theme="@style/Theme.QuizWiz3"/>
         <activity android:name=".Results" android:exported="true" />
 
         <!-- Launcher Activity -->
         <activity
-            android:name=".HelpSupport"
+            android:name=".SplashScreen"
             android:theme="@style/Theme.QuizWiz3"
             android:exported="true">
             <intent-filter>

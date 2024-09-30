@@ -9,14 +9,7 @@
     android:background="@color/BabyBlue"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/Pink"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:ignore="MissingConstraints" />
+
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileimage"
@@ -71,15 +64,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
         android:id="@+id/etEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="300dp"
-        android:background="@color/cardview_light_background"
+        android:layout_marginTop="308dp"
         android:layout_marginRight="15dp"
         android:autofillHints="emailAddress"
+        android:background="@color/cardview_light_background"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
@@ -87,10 +81,9 @@
         android:textColor="#1F3F28"
         android:textColorHint="#1F3F28"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/btnSSigned"

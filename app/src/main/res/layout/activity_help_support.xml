@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:theme="?attr/actionBarTheme"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:background="@color/Pink"
+            android:background="#FF1493"
             android:minHeight="?attr/actionBarSize" />
 
         <ImageView
@@ -105,8 +105,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="179dp"
-            android:layout_marginBottom="67dp"
+            android:layout_marginEnd="159dp"
+            android:layout_marginBottom="68dp"
             android:backgroundTint="#FF1493"
             android:text="SUBMIT"
             android:textColor="#000000"
@@ -118,7 +118,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.928" />
 
-
         <Button
             android:id="@+id/btnBackSettings"
             android:layout_width="wrap_content"
@@ -126,11 +125,11 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="98dp"
-            android:layout_marginEnd="116dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="108dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginBottom="14dp"
             android:backgroundTint="#FF1493"
-            android:text="Back To Settings Menu"
+            android:text="Back"
             android:textColor="#000000"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

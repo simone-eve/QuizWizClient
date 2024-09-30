@@ -42,7 +42,7 @@ class TrueorFalse : AppCompatActivity() {
         setContentView(R.layout.activity_trueor_false)
 
         // Initialize views
-        questionTXT2 = findViewById(R.id.questionText)
+        questionTXT2 = findViewById(R.id.questionTXT2)
         trueBtn = findViewById(R.id.truebtn)
         falseBtn = findViewById(R.id.falsebtn)
         nextBtn = findViewById(R.id.nextbtn)
@@ -253,7 +253,8 @@ class TrueorFalse : AppCompatActivity() {
                 return true
             }
             R.id.logout -> {
-                Toast.makeText(this, "Logout Selected", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, Logout::class.java)
+                startActivity(intent)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)

@@ -32,9 +32,7 @@ class About : AppCompatActivity() {
 
             startActivity(intent)
         }
-        val intent = Intent(this, About::class.java)
 
-        startActivity(intent)
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)

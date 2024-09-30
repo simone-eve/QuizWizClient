@@ -41,13 +41,12 @@ class Settings : AppCompatActivity() {
         btnHelpSupport = findViewById(R.id.btnHelpSupport)
         btnAbout = findViewById(R.id.btnAbout)
 
-        btnLogout = findViewById(R.id.btnLogout)
+        btnLogout = findViewById(R.id.btnBACK)
 
         auth = FirebaseAuth.getInstance()
 
 
-        val intent = Intent(this, Settings::class.java)
-        startActivity(intent)
+
 
 
         // Set OnClickListeners for the buttons
@@ -79,7 +78,7 @@ class Settings : AppCompatActivity() {
 
         btnLogout.setOnClickListener {
 
-            val intent = Intent(applicationContext, Logout::class.java)
+            val intent = Intent(applicationContext, Dashboard::class.java)
             startActivity(intent)
 
         }

@@ -38,7 +38,7 @@ class HelpSupport : AppCompatActivity() {
         // Back to Settings Menu Button
         btnBackSettings = findViewById(R.id.btnBackSettings)
         btnBackSettings.setOnClickListener {
-            val intent = Intent(this, Settings::class.java)
+            val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
         }
         // Set up FAQ text
