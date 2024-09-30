@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,6 +14,7 @@ import android.widget.Toast
 import retrofit2.Call
 import retrofit2.Response
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 import retrofit2.Callback
 
 class MultiChoice : AppCompatActivity() {
@@ -35,6 +38,9 @@ class MultiChoice : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multi_choice)
+
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
+        setSupportActionBar(toolbar)
 
         QuestionTXT = findViewById(R.id.QuestionTXT)
         answerButton1 = findViewById(R.id.answer1)
@@ -182,5 +188,45 @@ class MultiChoice : AppCompatActivity() {
         intent.putExtra("totalQuestions", "${questions.size}")
         startActivity(intent)
         nextbtn.isEnabled = false // Disable the next button if no more questions
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                startActivity(Intent(this, Profile::class.java))
+                return true
+            }
+
+            R.id.dashboard -> {
+                startActivity(Intent(this, Dashboard::class.java))
+                return true
+            }
+
+            R.id.settings -> {
+                startActivity(Intent(this, com.example.quizwiz3.Settings::class.java))
+                return true
+            }
+
+            R.id.helpsupport -> {
+                startActivity(Intent(this, HelpSupport::class.java))
+                return true
+            }
+
+            R.id.about -> {
+                startActivity(Intent(this, About::class.java))
+                return true
+            }
+
+            R.id.logout -> {
+                Toast.makeText(this, "Logged Out acti", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, Logout::class.java))
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -8,6 +8,15 @@
     android:background="#89CFF0"
     tools:context=".Results">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Pink"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/tvResults"
         android:layout_width="103dp"
@@ -20,8 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064" />
-
+        app:layout_constraintVertical_bias="0.04" />
 
     <TextView
         android:id="@+id/resultTextView"

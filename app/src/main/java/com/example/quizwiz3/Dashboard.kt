@@ -98,12 +98,11 @@ class Dashboard : AppCompatActivity() {
             }
 
             R.id.about -> {
-                startActivity(Intent(this, About::class.java))
+                startActivity(Intent(this,About::class.java))
                 return true
             }
 
             R.id.logout -> {
-                Toast.makeText(this, "Logged Out acti", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
 
             }

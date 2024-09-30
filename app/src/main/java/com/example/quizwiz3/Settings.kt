@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -32,6 +33,8 @@ class Settings : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
 
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
         // Find buttons by their IDs
         btnProfileSettings = findViewById(R.id.btnProfileSettings)
         btnGameSettings = findViewById(R.id.btnGameSettings)

@@ -3,11 +3,15 @@ package com.example.quizwiz3
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +38,12 @@ class Results : AppCompatActivity() {
         cachedQuestionsMC = QuestionCache.cachedQuestionsMC
         cachedQuestionsTF = QuestionCache.cachedQuestionsTF
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        // Show the alert dialog when the activity starts
+        showInstructionsDialog()
+
         rvCategories = findViewById<RecyclerView>(R.id.rvCategories)
         resultTextView = findViewById(R.id.resultTextView)
         val category = intent.getStringExtra("category") ?: "Default"
@@ -51,6 +61,18 @@ class Results : AppCompatActivity() {
             fetchQuestionsTrueOrFalse(cachedQuestionsTF)
 
         }
+    }
+    private fun showInstructionsDialog() {
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("Instructions:")
+            .setMessage("Congratulations on completing the Quiz. Please click on any of the questions below to be given a deeper explanation of the Answer")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss() // Dismiss the dialog when the user clicks OK
+            }
+            .create()
+
+        alertDialog.show() // Display the dialog
+
     }
 
     private fun displayQuestionsMC(questions: List<MultipleChoiceQuestion>) {
@@ -90,6 +112,46 @@ class Results : AppCompatActivity() {
 
     private fun fetchQuestionsTrueOrFalse(cachedQuestionsTF2: List<TrueOrFalseQuestion>) {
         displayQuestionsTF(cachedQuestionsTF2)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                startActivity(Intent(this, Profile::class.java))
+                return true
+            }
+
+            R.id.dashboard -> {
+                startActivity(Intent(this, Dashboard::class.java))
+                return true
+            }
+
+            R.id.settings -> {
+                startActivity(Intent(this, com.example.quizwiz3.Settings::class.java))
+                return true
+            }
+
+            R.id.helpsupport -> {
+                startActivity(Intent(this, HelpSupport::class.java))
+                return true
+            }
+
+            R.id.about -> {
+                startActivity(Intent(this, About::class.java))
+                return true
+            }
+
+            R.id.logout -> {
+                startActivity(Intent(this, Logout::class.java))
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
