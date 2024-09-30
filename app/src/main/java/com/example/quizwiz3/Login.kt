@@ -114,7 +114,7 @@ class Login : AppCompatActivity() {
                     navigateToSecondActivity()
                     val user = auth.currentUser
                     val displayName = user?.displayName ?: "User"
-                    Toast.makeText(this, "Signed In with Google $displayName" , Toast.LENGTH_SHORT).show()
+
                 } else {
                     // Sign in failed
                     Toast.makeText(this, "Firebase Authentication Failed", Toast.LENGTH_SHORT).show()

@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 
 class Dashboard : AppCompatActivity() {
@@ -102,8 +103,9 @@ class Dashboard : AppCompatActivity() {
             }
 
             R.id.logout -> {
+                Toast.makeText(this, "Logged Out acti", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
-                return true
+
             }
         }
         return super.onOptionsItemSelected(item)
@@ -111,4 +113,4 @@ class Dashboard : AppCompatActivity() {
 }
 
 
-}
+

@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class IconAdapter(private val icons: List<Int>, private val listener: OnIconClickListener) :
-    RecyclerView.Adapter<IconAdapter.IconViewHolder>() {
+class IconAdapter(
+    private val icons: List<Int>,
+    private val onIconClick: (Int) -> Unit // Lambda instead of interface
+) : RecyclerView.Adapter<IconAdapter.IconViewHolder>() {
 
     inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val iconImageView: ImageView = itemView.findViewById(R.id.iconImageView)
@@ -22,15 +24,12 @@ class IconAdapter(private val icons: List<Int>, private val listener: OnIconClic
     override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
         holder.iconImageView.setImageResource(icons[position])
         holder.itemView.setOnClickListener {
-            listener.onIconClick(icons[position])
+            onIconClick(icons[position]) // Use the lambda to handle clicks
         }
     }
 
     override fun getItemCount(): Int {
         return icons.size
     }
-
-    interface OnIconClickListener {
-        fun onIconClick(icon: Int)
-    }
 }
+
