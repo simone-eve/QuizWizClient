@@ -74,7 +74,10 @@ class Results : AppCompatActivity() {
         alertDialog.show() // Display the dialog
 
     }
-
+//___________code attribution___________
+//The following code was taken from Medium
+//Author: Ranjan Mishra
+//Link: https://ranjanmishramed.medium.com/how-to-create-custom-adapter-for-recycler-view-android-kotlin-f8da7fc6260e
     private fun displayQuestionsMC(questions: List<MultipleChoiceQuestion>) {
         QuestionsAdapter = QuestionsAdapter(questions) { selectedQuestion ->
 
@@ -90,7 +93,7 @@ class Results : AppCompatActivity() {
         rvCategories.layoutManager = LinearLayoutManager(this)
         rvCategories.adapter = QuestionsAdapter
     }
-
+//___________end___________
     private fun displayQuestionsTF(questions: List<TrueOrFalseQuestion>) {
         QuestionsAdapterTrueOrFalse = QuestionsAdapterTrueOrFalse(questions) { selectedQuestion ->
 
