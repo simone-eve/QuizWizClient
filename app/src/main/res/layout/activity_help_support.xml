@@ -30,14 +30,14 @@
             android:layout_marginTop="25sp"
             app:srcCompat="@mipmap/ic_launcher_foreground" />
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="386dp"
-            android:layout_height="460dp"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="220dp"
-            android:text=""
-            app:backgroundTint="@color/lightBabyBlue"
-            app:cornerRadius="0dp" />
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="386dp"-->
+<!--            android:layout_height="460dp"-->
+<!--            android:layout_marginLeft="11dp"-->
+<!--            android:layout_marginTop="220dp"-->
+<!--            android:text=""-->
+<!--            app:backgroundTint="@color/lightBabyBlue"-->
+<!--            app:cornerRadius="0dp" />-->
 
         <EditText
             android:id="@+id/editTextText"
@@ -87,14 +87,14 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/editTextFeedback"
             android:layout_width="373dp"
             android:layout_height="87dp"
             android:layout_marginLeft="17dp"
             android:layout_marginTop="520dp"
             android:background="@color/BabyBlue"
-            android:text=" Feedback"
+            android:hint="Enter your question"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
