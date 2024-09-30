@@ -18,9 +18,9 @@
         android:usesCleartextTraffic="true">
 
         <!-- Activities -->
-        <activity android:name=".Profile" android:exported="false" />
+        <activity android:name=".Dashboard" android:exported="false" />
         <activity android:name=".QuestionsAdapter" android:exported="false" />
-        <activity android:name=".Login" android:exported="true" />
+        <activity android:name=".Profile" android:exported="true" />
         <activity android:name=".MainActivity" android:exported="true" />
         <activity android:name=".ChatGPTResult" android:exported="true" />
         <activity android:name=".TrueorFalse" android:exported="true" />
@@ -38,7 +38,7 @@
 
         <!-- Launcher Activity -->
         <activity
-            android:name=".Dashboard"
+            android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="true">
             <intent-filter>
