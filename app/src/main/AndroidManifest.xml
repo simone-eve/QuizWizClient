@@ -19,6 +19,7 @@
 
         <!-- Activities -->
         <activity android:name=".Dashboard" android:exported="false" />
+        <activity android:name=".Logout" android:exported="false" />
         <activity android:name=".Login" android:exported="false" />
         <activity android:name=".QuestionsAdapter" android:exported="false" />
         <activity android:name=".Profile" android:exported="true" />
@@ -33,13 +34,13 @@
             android:theme="@style/Theme.QuizWiz3"
             android:exported="true" />
         <activity android:name=".GameSettings" android:exported="false" android:theme="@style/Theme.QuizWiz3"/>
-        <activity android:name=".HelpSupport" android:exported="false" android:theme="@style/Theme.QuizWiz3"/>
+        <activity android:name=".SplashScreen" android:exported="false" android:theme="@style/Theme.QuizWiz3"/>
         <activity android:name=".About" android:exported="true" android:theme="@style/Theme.QuizWiz3"/>
         <activity android:name=".Results" android:exported="true" />
 
         <!-- Launcher Activity -->
         <activity
-            android:name=".SplashScreen"
+            android:name=".HelpSupport"
             android:theme="@style/Theme.QuizWiz3"
             android:exported="true">
             <intent-filter>

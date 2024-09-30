@@ -54,9 +54,6 @@ class HelpSupport : AppCompatActivity() {
 
 
 
-        // Remove the unnecessary Intent that restarts this activity
-        // val intent = Intent(this, HelpSupport::class.java)
-        // startActivity(intent)
     }
 
     private fun submitFeedback() {
@@ -74,15 +71,7 @@ class HelpSupport : AppCompatActivity() {
             Toast.makeText(this, "Please enter your feedback.", Toast.LENGTH_SHORT).show()
 
 
-            fun logoutUser() {
-                // Perform the logout logic here
-                // For example, if using Firebase Auth, you could call FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this, Login::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
 
-            }
         }
     }
 
@@ -104,7 +93,7 @@ class HelpSupport : AppCompatActivity() {
             }
 
             R.id.settings -> {
-                startActivity(Intent(this, com.example.quizwiz3.Settings::class.java))
+                startActivity(Intent(this, Settings::class.java))
                 return true
             }
 
@@ -119,7 +108,6 @@ class HelpSupport : AppCompatActivity() {
             }
 
             R.id.logout -> {
-                Toast.makeText(this, "Logged Out acti", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
 
             }
