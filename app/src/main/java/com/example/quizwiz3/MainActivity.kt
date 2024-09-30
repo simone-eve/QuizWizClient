@@ -36,6 +36,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
 
+//___________code attribution___________
+//The following code was taken from Coding with T in youtube
+//Author: Coding with T
+//Link: https://www.youtube.com/watch?v=bBJF1M5h_UU&t=1281s
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.google_client_id))
             .requestEmail()
@@ -92,6 +96,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //___________code attribution___________
+//The following code was taken from Panda Suite
+//Author: Panda Suite
+//Link: https://learn.pandasuite.com/article/946-associate-data-to-user-with-firebase#:~:text=Simply%20assign%20data%20to%20a,data%20wherever%20you%20use%20it.
     private fun saveUserDetails(name: String, email: String, firebaseUUID: String) {
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
 
@@ -118,6 +126,7 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+    //___________end___________
 
     fun signIn() {
         gsc?.signOut()?.addOnCompleteListener {
@@ -165,4 +174,6 @@ class MainActivity : AppCompatActivity() {
         val intent: Intent = Intent(this@MainActivity, Dashboard::class.java)
         startActivity(intent)
     }
+
+    //___________end___________
 }

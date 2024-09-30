@@ -40,6 +40,10 @@ class Login : AppCompatActivity() {
 
 
         FirebaseApp.initializeApp(this)
+ //___________code attribution___________
+//The following code was taken from Coding with T in youtube
+//Author: Coding with T
+//Link: https://www.youtube.com/watch?v=bBJF1M5h_UU&t=1281s
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.google_client_id))
             .requestEmail()
@@ -128,4 +132,6 @@ class Login : AppCompatActivity() {
         val intent: Intent = Intent(this@Login, Dashboard::class.java)
         startActivity(intent)
     }
+
+    //___________end___________
 }
