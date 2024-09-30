@@ -8,8 +8,10 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+
 
 class Settings : AppCompatActivity() {
 
@@ -17,23 +19,29 @@ class Settings : AppCompatActivity() {
     private lateinit var btnGameSettings: Button
     private lateinit var btnHelpSupport: Button
     private lateinit var btnAbout: Button
+
     private lateinit var btnLogout: Button
     private lateinit var auth: FirebaseAuth
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
         FirebaseApp.initializeApp(this)
+
 
         // Find buttons by their IDs
         btnProfileSettings = findViewById(R.id.btnProfileSettings)
         btnGameSettings = findViewById(R.id.btnGameSettings)
         btnHelpSupport = findViewById(R.id.btnHelpSupport)
         btnAbout = findViewById(R.id.btnAbout)
+
         btnLogout = findViewById(R.id.btnLogout)
 
         auth = FirebaseAuth.getInstance()
+
 
         val intent = Intent(this, Settings::class.java)
         startActivity(intent)
@@ -64,6 +72,7 @@ class Settings : AppCompatActivity() {
             val intent = Intent(this, About::class.java)
             startActivity(intent)
         }
+
 
         btnLogout.setOnClickListener {
 
