@@ -3,13 +3,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.appcompat.widget.Toolbar
+
 class Dashboard : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +21,10 @@ class Dashboard : AppCompatActivity() {
         val btndisney: ImageButton = findViewById(R.id.btndisney)
         val btnmusic: ImageButton = findViewById(R.id.btnmusic)
         val btntvshows: ImageButton = findViewById(R.id.btntvshows)
-
         val btnhistory: ImageButton = findViewById(R.id.btnhistory)
+
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
+        setSupportActionBar(toolbar)
 
         // Handle Back button to go to PlayerSelection
 
@@ -33,6 +35,7 @@ class Dashboard : AppCompatActivity() {
             intent.putExtra("category", "Animals")
             startActivity(intent)
         }
+
 
         btnfood.setOnClickListener {
             val intent = Intent(this, MultiChoice::class.java)
@@ -65,7 +68,6 @@ class Dashboard : AppCompatActivity() {
         }
 
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
@@ -105,8 +107,8 @@ class Dashboard : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
-
     }
 }
 
 
+}

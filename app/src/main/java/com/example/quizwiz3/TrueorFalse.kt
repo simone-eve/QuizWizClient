@@ -204,7 +204,6 @@ class TrueorFalse : AppCompatActivity() {
     private fun displayScore() {
         // resultTextView.text = "Quiz Finished! Your score: $score/${questions.size}"
         val intent = Intent(this, Results::class.java)
-        intent.putExtra("type", "MultipleChoice")
         intent.putExtra("score", "$score")
         intent.putExtra("totalQuestions", "${questions.size}")
         startActivity(intent)
