@@ -25,7 +25,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Pink"
+            android:background="#FF1493"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
@@ -107,7 +107,7 @@ your experience and connect you with other players."
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="625dp"
-            android:backgroundTint="@color/Pink"
+            android:backgroundTint="#FF1493"
             android:text="Back To Settings Menu"
             android:textSize="20dp"
             app:cornerRadius="0dp" />

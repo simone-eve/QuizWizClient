@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etPasword: EditText
     private lateinit var etName: EditText
     private lateinit var btnSignUp: Button
-    private lateinit var btnLogout: Button
     private lateinit var tvRedirectLogin: TextView
     private lateinit var auth: FirebaseAuth
 
@@ -51,8 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
         etEmail = findViewById(R.id.etEmailAddress)
-        btnLogout = findViewById<Button>(R.id.logout)
-        etPasword = findViewById(R.id.etPassword)
+       etPasword = findViewById(R.id.etPassword)
         etName = findViewById(R.id.etName)
         btnSignUp = findViewById(R.id.btnSSigned)
         tvRedirectLogin = findViewById(R.id.tvRedirectLogin)
@@ -64,15 +62,7 @@ class MainActivity : AppCompatActivity() {
             signUpUser()
         }
 
-        btnLogout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val user = auth.currentUser
-            val displayName = user?.displayName ?: "User"
 
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
-
-        }
 
         tvRedirectLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)

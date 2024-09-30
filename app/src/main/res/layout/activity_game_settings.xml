@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Pink"
+            android:background="#FF1493"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
@@ -45,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="172dp"
-            android:layout_marginBottom="107dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="105dp"
             android:backgroundTint="#FF1493"
             android:text="SAVE"
             android:textColor="#000000"
@@ -143,8 +143,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="115dp"
-            android:layout_marginBottom="37dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="38dp"
             android:backgroundTint="#FF1493"
             android:text="Back To Settings Menu"
             android:textColor="#000000"
@@ -155,10 +155,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.928" />
-
-
-
-
 
         <Spinner
             android:id="@+id/languageSpinner"
