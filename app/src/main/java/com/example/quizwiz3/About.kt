@@ -19,6 +19,9 @@ class About : AppCompatActivity() {
 
         setContentView(R.layout.activity_about)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         btnBackSettings = findViewById(R.id.btnBackSettings)
 
 
@@ -33,7 +36,45 @@ class About : AppCompatActivity() {
 
         startActivity(intent)
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                startActivity(Intent(this, Profile::class.java))
+                return true
+            }
+
+            R.id.dashboard -> {
+                startActivity(Intent(this, Dashboard::class.java))
+                return true
+            }
+
+            R.id.settings -> {
+                startActivity(Intent(this, com.example.quizwiz3.Settings::class.java))
+                return true
+            }
+
+            R.id.helpsupport -> {
+                startActivity(Intent(this, HelpSupport::class.java))
+                return true
+            }
+
+            R.id.about -> {
+                startActivity(Intent(this, About::class.java))
+                return true
+            }
+
+            R.id.logout -> {
+                startActivity(Intent(this, Logout::class.java))
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
 
 

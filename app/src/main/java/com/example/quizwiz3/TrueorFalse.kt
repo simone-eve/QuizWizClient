@@ -11,9 +11,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 
 class TrueorFalse : AppCompatActivity() {
 
@@ -46,6 +49,8 @@ class TrueorFalse : AppCompatActivity() {
         imageView = findViewById(R.id.imageView)
 
 
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
+        setSupportActionBar(toolbar)
         // Get the category passed from Dashboard
         val category = intent.getStringExtra("category") ?: "Default"
 
@@ -55,7 +60,7 @@ class TrueorFalse : AppCompatActivity() {
         // Fetch questions for the category
         fetchQuestions(category)
 
-        Backbtn2 = findViewById(R.id.Backbtn2)
+        Backbtn2 = findViewById(R.id.backbtn2)
         Backbtn2.setOnClickListener {
             showPreviousQuestion()
         }
@@ -210,5 +215,47 @@ class TrueorFalse : AppCompatActivity() {
         nextBtn.isEnabled = false // Disable the next button
         trueBtn.isEnabled = false // Disable the true button
         falseBtn.isEnabled = false // Disable the false button
+    }
+
+    // Inflate the menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // Handle menu item selection
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                val intent = Intent(this, Profile::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.dashboard -> {
+                val intent = Intent(this, Dashboard::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.settings -> {
+                val intent = Intent(this, Settings::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.helpsupport -> {
+                val intent = Intent(this, HelpSupport::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.about -> {
+                val intent = Intent(this, About::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.logout -> {
+                Toast.makeText(this, "Logout Selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }
