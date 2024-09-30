@@ -17,6 +17,11 @@ class Dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+
+        //declare variables
+        //code attribution
+        // Adapted from W3Schools' tutorial on Android Button Clicks
+        //https://www.w3schools.com/cssref/tryit.php?filename=trycss_js_background-color
         val animalbtn: ImageButton = findViewById(R.id.animalbtn)
         val btnfood: ImageButton = findViewById(R.id.btnfood)
         val btndisney: ImageButton = findViewById(R.id.btndisney)
@@ -27,8 +32,9 @@ class Dashboard : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.topAppBar)
         setSupportActionBar(toolbar)
 
-        // Handle Back button to go to PlayerSelection
 
+        //code attributution
+        //this code was taken from youtube : https://youtu.be/JOdWT50bWw4?si=zKNUSyQAKs9WAqgW
 
         animalbtn.setOnClickListener {
             Log.d("Dashboard", "Animal button clicked, launching MultiChoice")
@@ -70,6 +76,9 @@ class Dashboard : AppCompatActivity() {
 
     }
 
+    //code attribution
+    // Adapted from W3Schools' tutorial on Android Button Clicks
+//https://www.w3schools.com/cssref/tryit.php?filename=trycss_js_background-color
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true

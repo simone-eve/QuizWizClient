@@ -15,6 +15,9 @@ object RetrofitClient {
     private const val BASE_URL = "https://quizwizapi-bwhegqg7bcdze9gy.canadacentral-01.azurewebsites.net/"
 
     // Create a custom OkHttpClient that trusts all certificates
+    //code attribution
+    //this code was taken from youtube
+    //link:https://youtu.be/lz5lPAdA3fQ?si=JhNTuySEabDPHz3k
     private val okHttpClient: OkHttpClient by lazy {
         val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
             override fun checkClientTrusted(chain: Array<out X509Certificate>, authType: String) {}
@@ -35,6 +38,10 @@ object RetrofitClient {
     }
 
     // Create Retrofit instance lazily
+    //code attribution
+    //this code was taken from youtube
+    //link:https://youtu.be/lz5lPAdA3fQ?si=JhNTuySEabDPHz3k
+
     val instance: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)

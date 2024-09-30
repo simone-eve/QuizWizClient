@@ -7,10 +7,14 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface QuizApiService {
-
+    //code attribution
+    //this code was taken from youtube
+    //link:https://youtu.be/lz5lPAdA3fQ?si=JhNTuySEabDPHz3k
     @GET("api/TrueOrFalseQuiz/get/{category}")
     fun getQuestions(@Path("category") category: String): Call<List<TrueOrFalseQuestion>>
-
+    //code attribution
+    //this code was taken from youtube
+    //link:https://youtu.be/lz5lPAdA3fQ?si=JhNTuySEabDPHz3k
     @GET("api/Quiz/get/{category}")
     fun getMultipleChoiceQuestions(@Path("category") category: String): Call<List<MultipleChoiceQuestion>>
 

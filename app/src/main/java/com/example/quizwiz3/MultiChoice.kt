@@ -19,6 +19,10 @@ import retrofit2.Callback
 
 class MultiChoice : AppCompatActivity() {
 
+    //code attribution
+    //this code was take n from W3Schools :
+    //link:https://www.w3schools.com/java/java_variables_multiple.asp
+
     private lateinit var QuestionTXT: TextView
     private lateinit var answerButton1: Button
     private lateinit var answerButton2: Button
@@ -27,6 +31,8 @@ class MultiChoice : AppCompatActivity() {
     private lateinit var backbtn: Button
     private lateinit var resultTextView: TextView
     private lateinit var dashboardbtn: Button
+
+
 
     private var questions: List<MultipleChoiceQuestion> = emptyList()
     private var stringQuestions: List<String> = emptyList()
@@ -57,6 +63,9 @@ class MultiChoice : AppCompatActivity() {
         showInstructionsDialog()
 
         // Set click listeners for answer buttons
+        //code attribution
+        //this code was taken from  stack overflow
+        //link:https://stackoverflow.com/questions/20156733/how-to-add-button-click-event-in-android-studio
         answerButton1.setOnClickListener { handleAnswerSelection(answerButton1, answerButton1.text.toString()) }
         answerButton2.setOnClickListener { handleAnswerSelection(answerButton2, answerButton2.text.toString()) }
         answerButton3.setOnClickListener { handleAnswerSelection(answerButton3, answerButton3.text.toString()) }
@@ -75,6 +84,9 @@ class MultiChoice : AppCompatActivity() {
         // Set click listener for back button
         backbtn.setOnClickListener { showPreviousQuestion() }
     }
+    //code attribution
+    //this code was taken from youtube
+    //link:https://www.youtube.com/results?search_query=linking+a+button+to+aclass+on+adnroid+studio+
 
     private fun showPreviousQuestion() {
         if (currentQuestionIndex > 0) {
@@ -98,7 +110,9 @@ class MultiChoice : AppCompatActivity() {
 
         alertDialog.show() // Display the dialog
     }
-
+    //code attribution
+    //this code was taken from  stack overflow
+    //link:https://stackoverflow.com/questions/20156733/how-to-add-button-click-event-in-android-studio
     private fun handleAnswerSelection(button: Button, answer: String) {
         selectedAnswer = answer
         val currentQuestion = questions[currentQuestionIndex]
@@ -141,6 +155,9 @@ class MultiChoice : AppCompatActivity() {
         answerButton2.setBackgroundColor(Color.parseColor("#FF1493"))
         answerButton3.setBackgroundColor(Color.parseColor("#FF1493"))
     }
+    //code attribution
+    //this code was taken from youtube
+    //link:https://www.youtube.com/results?search_query=linking+a+button+to+aclass+on+adnroid+studio+
 
     private fun fetchQuestions(category: String) {
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
@@ -163,7 +180,9 @@ class MultiChoice : AppCompatActivity() {
             }
         })
     }
-
+    //code attribution
+    //this code was taken from  stack overflow
+    //link:https://stackoverflow.com/questions/20156733/how-to-add-button-click-event-in-android-studio
     private fun displayCurrentQuestion() {
         if (questions.isNotEmpty() && currentQuestionIndex < questions.size) {
             val currentQuestion = questions[currentQuestionIndex]

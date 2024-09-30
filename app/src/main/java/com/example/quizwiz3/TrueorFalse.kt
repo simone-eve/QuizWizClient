@@ -20,6 +20,11 @@ import androidx.appcompat.widget.Toolbar
 
 class TrueorFalse : AppCompatActivity() {
 
+    //code attribution
+    //this code was taken from youtube
+    //link:https://www.youtube.com/results?search_query=linking+a+button+to+aclass+on+adnroid+studio+
+
+
     private lateinit var Backbtn2: Button
     private lateinit var questionTXT2: TextView
     private lateinit var trueBtn: Button
@@ -158,6 +163,9 @@ class TrueorFalse : AppCompatActivity() {
             }
 
             // Set happy emoji
+            //code attribution
+            //this code was take from youtube
+           // link:https://www.youtube.com/results?search_query=linking+a+button+to+aclass+on+adnroid+studio+
             imageView.setImageResource(R.drawable.smile) // Replace with your happy emoji drawable
         } else {
             Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show()
@@ -219,6 +227,9 @@ class TrueorFalse : AppCompatActivity() {
     }
 
     // Inflate the menu
+    //code attribution
+    //this code was taken from  stack overflow
+    //link:https://stackoverflow.com/questions/20156733/how-to-add-button-click-event-in-android-studio
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
